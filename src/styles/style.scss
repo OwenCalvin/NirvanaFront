@@ -1,0 +1,10 @@
+$blue: #315ef7;
+$btn-box-shadow: none;
+$btn-active-box-shadow: none;
+$btn-focus-box-shadow: none;
+$btn-border-radius: 10px;
+$btn-border-width: 0;
+$enable-caret: false;
+
+@import '~bootstrap/scss/bootstrap.scss';
+@import '~bootstrap-vue/src/index.scss';

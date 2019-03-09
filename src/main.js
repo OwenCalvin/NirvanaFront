@@ -3,17 +3,22 @@ import VeeValidate from 'vee-validate'
 import router from './router'
 import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
-import './assets/css/styles.css'
+import store from './store'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import './styles/style.scss'
+
+library.add()
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(BootstrapVue)
-
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(VeeValidate);
 Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App),
 }).$mount('#app')

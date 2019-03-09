@@ -1,29 +1,29 @@
 <template>
-<!-- HTML -->
   <div id="app">
-    <!-- Affichage des watts -->
-    <Datacenter></Datacenter>
-
-    <br><br><br>
-
-    <!--- Three Column Section -->
-    <Element></Element>
+    <b-container fluid>
+      <router-view/>
+    </b-container>
   </div>
-
-
 </template>
 
 <script>
-import Datacenter from './components/Datacenter'
-import Element from './components/Element'
+import Probs from './class/Probs'
 
 export default {
   name: 'app',
-  components: {
-    Datacenter,
-    Element
+  async created() {
+    await Probs.launch()
   }
 }
 </script>
 
-<style></style>
+<style lang="scss">
+* {
+  outline: none !important;
+  font-family: 'Avenir';
+}
+html, body {
+  padding: 0;
+  margin: 0;
+}
+</style>
