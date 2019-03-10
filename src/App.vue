@@ -26,4 +26,7 @@ html, body {
   padding: 0;
   margin: 0;
 }
+.blue {
+  color: #2b5dff;
+}
 </style>

@@ -1,10 +1,12 @@
-import store from "../store"
+import store from '../store'
 
 export default class Probs {
   static range = 15
+  static unitPerDay = 24 * 60 / this.range;
   static tick = 0
+  static timer
 
-  static getCurrentTimeRangeIndex() {
+  static getCurrentTimeRangeIndex () {
     const now = new Date()
     const midnight = new Date(
       now.getFullYear(),
@@ -17,7 +19,7 @@ export default class Probs {
     )
   }
 
-  static getTimeRangeByIndex(index) {
+  static getTimeRangeByIndex (index) {
     const now = new Date()
     const indexTime = new Date(
       now.getFullYear(),
@@ -28,18 +30,35 @@ export default class Probs {
     return indexTime - now.getTime()
   }
 
-  static getKw(ms) {
+  static getKw (ms) {
     const currentIndex = Probs.getCurrentTimeRangeIndex()
-    const prob = store.getters.probs[currentIndex]
-    return (prob.slope / (Probs.range * 60 * 1000)) * ms + prob.value
+    if (currentIndex >= this.unitPerDay) {
+      clearInterval(this.timer)
+      try {
+        this.launch()
+      } catch (err) {
+        location.reload()
+      }
+    } else {
+      const prob = store.getters.probs[currentIndex]
+      console.log(prob.slope, prob.slope / (this.range * 60 * 1000), ms)
+      return (prob.slope / this.convertToMs(this.range)) * ms + prob.value
+    }
   }
 
-  static async launch() {
+  static async launch () {
     await store.dispatch('setProbs')
-    setInterval(() => {
-      const currentIndex = Probs.getCurrentTimeRangeIndex()
-      const ms = Probs.getTimeRangeByIndex(currentIndex + 1)
-      store.dispatch('setCurrentValue', Probs.getKw(ms))
+    this.timer = setInterval(async () => {
+      const currentIndex = this.getCurrentTimeRangeIndex()
+      const ms = this.convertToMs(Probs.range) - this.getTimeRangeByIndex(currentIndex + 1)
+      const value = this.getKw(ms)
+      if (value) {
+        store.dispatch('setCurrentValue', value)
+      }
     }, 100)
+  }
+
+  static convertToMs (minutes) {
+    return minutes * 60 * 1000
   }
 }

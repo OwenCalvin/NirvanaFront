@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 button {
   background: #2B5DFF;
   border: none;

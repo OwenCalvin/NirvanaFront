@@ -14,11 +14,11 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(BootstrapVue)
 
-Vue.use(VeeValidate);
+Vue.use(VeeValidate)
 Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
-  render: h => h(App),
+  render: h => h(App)
 }).$mount('#app')

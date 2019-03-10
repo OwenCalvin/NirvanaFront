@@ -13,15 +13,15 @@ export default new Vuex.Store({
     currentValue: state => state.currentValue
   },
   mutations: {
-    setProbs(state, probs) {
+    setProbs (state, probs) {
       state.probs = probs
     },
-    setCurrentValue(state, value) {
+    setCurrentValue (state, value) {
       state.currentValue = value
     }
   },
   actions: {
-    async setProbs({ commit }) {
+    async setProbs ({ commit }) {
       try {
         const probs = await Api.getProbs()
         commit('setProbs', probs.data)
@@ -29,7 +29,7 @@ export default new Vuex.Store({
         console.log(err)
       }
     },
-    setCurrentValue({ commit }, value) {
+    setCurrentValue ({ commit }, value) {
       commit('setCurrentValue', value)
     }
   }
