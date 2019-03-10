@@ -22,7 +22,6 @@
       </svg>
     </b-row>
 
-
     <b-row class="values" align-h="center" align-v="center">
       <b-col class="text-center" md="4" xs="12" v-for="(item, index) in equals" :key="index">
         <a href="#creation"><i class="fas fa-tree"></i></a>
@@ -87,18 +86,31 @@ export default {
   }),
   async created() {
     try {
-      this.questions = (await Api.getQuestions()).data
+      this.questions = this.calculatePortion((await Api.getQuestions()).data)
     } catch (err) {
       console.log(err)
     }
   },
   methods: {
+    calculatePortion(questions) {
+      return questions.map((question) => {
+        const total = question.answers.reduce((total, answer) => {
+          return total + answer.votes
+        }, 0)
+        question.answers = question.answers.map((answer) => {
+          answer.portion = answer.votes / total
+          return answer
+        })
+        return question
+      })
+    },
     nextQuestion() {
       this.questionIndex++;
       localStorage.setItem('questionIndex', this.questionIndex)
     },
     async answer(answerIndex) {
-      console.log(this.questionIndex, answerIndex)
+      this.questions[this.questionIndex].answers[answerIndex].votes++
+      this.questions = this.calculatePortion(this.questions)
       await Api.postAnswer(this.questionIndex, answerIndex)
     },
     co2() {

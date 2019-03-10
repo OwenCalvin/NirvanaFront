@@ -20,7 +20,7 @@ export default {
 <style lang="scss">
 * {
   outline: none !important;
-  font-family: 'Avenir';
+  font-family: 'Avenir', sans-serif;
 }
 html, body {
   padding: 0;
