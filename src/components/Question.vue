@@ -5,16 +5,18 @@
       <h3 class="blue">{{ item.question }}</h3>
       <h3 v-if="answered" class="blue explanation">{{ item.explanation }}</h3>
       <Answer
+      v-scroll-to="'#next'"
       @click.native="answer(item, index)"
       class="answer-item"
       v-for="(item, index) in item.answers"
       :correct="item.correct"
       :notCorrect="item.notCorrect"
       :disabled="answered"
+      :portion="item.portion"
       :key="index">
         {{ item.text }}
       </Answer>
-      <Button @click.native="next" v-if="answered" class="btn-next">
+      <Button id="next" @click.native="next" v-if="answered" class="btn-next">
         {{ last ? 'Terminer' : 'Question suivante' }}
       </Button>
     </b-col>
@@ -34,7 +36,6 @@ export default {
     answer(item, index) {
       if (!this.answered) {
         this.item.answers.map((answer, index) => {
-          console.log(answer)
           if (answer.good) {
             this.$set(answer, 'correct', true)
           }
@@ -71,6 +72,7 @@ h3 {
   margin-bottom: 20px;
 }
 .btn-next {
+  margin-bottom: 15px;
   margin-top: 15px;
 }
 .explanation {
