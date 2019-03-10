@@ -3,6 +3,7 @@
     <b-col md="5">
       <span class="blue">{{ index }} / {{ total }}</span>
       <h3 class="blue">{{ item.question }}</h3>
+      <h3 v-if="answered" class="blue explanation">{{ item.explanation }}</h3>
       <Answer
       @click.native="answer(item, index)"
       class="answer-item"
@@ -13,7 +14,7 @@
       :key="index">
         {{ item.text }}
       </Answer>
-      <Button @click.native="next" v-show="answered" class="btn-next">
+      <Button @click.native="next" v-if="answered" class="btn-next">
         {{ last ? 'Terminer' : 'Question suivante' }}
       </Button>
     </b-col>
@@ -71,5 +72,8 @@ h3 {
 }
 .btn-next {
   margin-top: 15px;
+}
+.explanation {
+  font-weight: normal
 }
 </style>
