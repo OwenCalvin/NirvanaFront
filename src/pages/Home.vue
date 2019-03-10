@@ -32,7 +32,7 @@
       </b-col>
     </b-row>
 
-    <b-row>
+    <b-row >
       <b-col v-if="questionIndex < questions.length">
         <Question
         v-if="question"
@@ -47,6 +47,29 @@
         finito
       </b-col>
     </b-row>
+
+    <b-row class="footer">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1920 40.962">
+        <path d="M0,43.106H1920V11.569s-227.649-18.131-520.317-9c-270.666,8.448-566.5,37.616-797.38,37.616C122.3,40.188,0,10.772,0,10.772Z" fill="#e7ecff"/>
+      </svg>
+      <b-col class="footer-content">
+        <b-row class="flex-column " align-h="center" align-v="center">
+            <h4 class="blue font-weight-bold">
+              ecoblue.blue
+            </h4>
+        </b-row>
+        <b-row class="flex-column" align-h="center" align-v="center">
+          <img src="../assets/img/fish.svg" class="FavoriteFish"/>
+        </b-row>
+        <b-row class="flex-column" align-h="center" align-v="center">
+          <h4>
+              <router-link to="/about">A propos du projet</router-link>
+          </h4>
+        </b-row>
+      </b-col>
+    </b-row>
+    
+
   </div>
 </template>
 
@@ -151,5 +174,28 @@ h1 {
 }
 .values {
   height: 60vh;
+}
+.footer{
+    margin-top: 15vh;
+}
+.footer-content{
+    background: #e7ecff;
+    padding-top: 2.5vh;
+    padding-bottom: 2vh;
+}
+.FavoriteFish{
+  height: 3vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+a{
+  color: #869ff9;
+  border-bottom: 3px solid #dce3fd;
+  transition: all .3s;
+}
+a:hover{
+  color: #4d73f8;
+  border-bottom: 3px solid #4d73f8;
+  text-decoration: none;
 }
 </style>
