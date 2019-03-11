@@ -34,7 +34,22 @@
       </b-col>
     </b-row>
 
-    <b-row class="questions my-5" align-h="center" align-v="center">
+    <b-row align-h="center mt-5" align-v="center">
+      <b-col md="9">
+        <div class="text-center">
+          <h2 class="font-weight-black title n-light">
+            <UnderlineText height="13" bottom="1">
+              Questionnaire
+            </UnderlineText>
+          </h2>
+          <p class="n-light sub-title">
+            Nous vous proposons on petit questionnaire afin de remettre en question vos habitudes
+          </p>
+        </div>
+      </b-col>
+    </b-row>
+
+    <b-row class="questions mt-4 mb-5" align-h="center" align-v="center">
       <b-col v-if="questionIndex < questions.length">
         <Question
         v-if="question"
@@ -158,7 +173,7 @@ export default {
         },
         {
           name: 'Consommation',
-          unit: 'Est pourcentage de la consommation semestriel d\'un suisse moyen',
+          unit: 'Est pourcentage de la consommation semestriel d\'un suisse',
           value: this.person
         }
       ]
@@ -174,6 +189,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.title {
+  font-size: 3em;
+}
+
 .kw-badge {
   background: rgba(255, 255, 255, 0.24);
   color: white;
@@ -211,7 +230,7 @@ h1 {
 }
 
 .footer {
-  margin-top: 5em;
+  margin-top: 8em;
 }
 
 .footer-content {
@@ -251,5 +270,9 @@ a {
   h1 {
     font-size: 4em;
   }
+}
+
+.sub-title {
+  font-size: 1.5em;
 }
 </style>

@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  props: ['height', 'color'],
+  props: ['height', 'color', 'bottom'],
   data: () => ({
   }),
   created() {
@@ -30,7 +30,7 @@ export default {
       return this.getPx(this.height)
     },
     underlineBottom() {
-      return this.getPx(-this.height / 3)
+      return this.bottom ? this.getPx(this.bottom) : this.getPx(-this.height / 3)
     }
   }
 }
