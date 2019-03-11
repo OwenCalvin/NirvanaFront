@@ -1,12 +1,14 @@
 <template>
-  <span class="underline-text">
+  <span class="text-center underline-text">
     <span>
       <slot/>
     </span>
+    <!--
     <span
     class="underline"
     :style="{height: underlineHeight, bottom: underlineBottom, background: color || '#2b5dff1a'}"
     />
+    -->
   </span>
 </template>
 
@@ -14,10 +16,11 @@
 export default {
   props: ['height', 'color', 'bottom'],
   data: () => ({
+    realHeight: 8
   }),
   created() {
-    if (!this.height) {
-      this.height = 8
+    if (this.height) {
+      this.realHeight = this.height
     }
   },
   methods: {
@@ -27,10 +30,10 @@ export default {
   },
   computed: {
     underlineHeight() {
-      return this.getPx(this.height)
+      return this.getPx(this.realHeight)
     },
     underlineBottom() {
-      return this.bottom ? this.getPx(this.bottom) : this.getPx(-this.height / 3)
+      return this.bottom ? this.getPx(this.bottom) : this.getPx(-this.realHeight / 3)
     }
   }
 }

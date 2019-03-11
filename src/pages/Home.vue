@@ -4,13 +4,15 @@
       <b-col class="landing n-bg-blue">
         <b-row class="flex-column h-100" align-h="center" align-v="center">
           <h3 class="text-center">
-            <p>
+            <p class="font-weight-medium">
               <UnderlineText color="#ffffff33" height="5">
                 Depuis le 08.09.2019
+                <p>
+                  le datacenter du CPLN a consomé
+                </p>
               </UnderlineText>
             </p>
             <p>
-              le datacenter du CPLN a consomé
             </p>
           </h3>
           <h1>{{ currentValue.toFixed(2) }}</h1>
@@ -34,7 +36,7 @@
       </b-col>
     </b-row>
 
-    <b-row align-h="center mt-5" align-v="center">
+    <b-row v-if="!began" align-h="center mt-5" align-v="center">
       <b-col md="9">
         <div class="text-center">
           <h2 class="font-weight-black title n-light">
@@ -45,11 +47,14 @@
           <p class="n-light sub-title">
             Nous vous proposons on petit questionnaire afin de remettre en question vos habitudes
           </p>
+          <Button @click="nextQuestion">
+            Commencer
+          </Button>
         </div>
       </b-col>
     </b-row>
 
-    <b-row class="questions mt-4 mb-5" align-h="center" align-v="center">
+    <b-row v-else class="questions my-5" align-h="center" align-v="center">
       <b-col v-if="questionIndex < questions.length">
         <Question
         v-if="question"
@@ -104,11 +109,15 @@ import UnderlineText from '../components/UnderlineText'
 import Api from '../class/Api'
 import { mapGetters } from 'vuex'
 
+
 export default {
-  data: () => ({
-    questionIndex: Number(localStorage.getItem('questionIndex')) || 0,
-    questions: []
-  }),
+  data: () => {
+    const value = localStorage.getItem('questionIndex')
+    return {
+      questionIndex: value !== null ? Number(value) : -1,
+      questions: []
+    }
+  },
   async created() {
     try {
       this.questions = this.calculatePortion((await Api.getQuestions()).data)
@@ -130,13 +139,16 @@ export default {
       })
     },
     nextQuestion() {
-      this.questionIndex++;
-      localStorage.setItem('questionIndex', this.questionIndex)
+      this.questionIndex++
+      this.refreshLocalStorage()
     },
     async answer(answerIndex) {
       this.questions[this.questionIndex].answers[answerIndex].votes++
       this.questions = this.calculatePortion(this.questions)
       await Api.postAnswer(this.questionIndex, answerIndex)
+    },
+    refreshLocalStorage() {
+      localStorage.setItem('questionIndex', this.questionIndex)
     },
     co2() {
       return (129 * this.currentValue / 100).toFixed(2)
@@ -158,6 +170,9 @@ export default {
     ...mapGetters(['currentValue']),
     question() {
       return this.questions[this.questionIndex]
+    },
+    began() {
+      return this.questionIndex >= 0
     },
     equals() {
       return [
@@ -189,6 +204,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .3s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 .title {
   font-size: 3em;
 }

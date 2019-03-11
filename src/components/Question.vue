@@ -16,7 +16,7 @@
       :key="index">
         {{ item.text }}
       </Answer>
-      <Button v-scroll-to="'#answer'" @click.native="next" v-if="answered" class="btn-next">
+      <Button v-scroll-to="'#answer'" @click="next" v-if="answered" class="btn-next">
         {{ last ? 'Terminer' : 'Question suivante' }}
       </Button>
     </b-col>
