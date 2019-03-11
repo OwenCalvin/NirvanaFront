@@ -27,7 +27,7 @@
     </b-row>
 
     <b-row class="n-blue values" align-h="center" align-v="center">
-      <b-col class="text-center d-flex flex-column align-items-center py-5" md="4" xs="12" v-for="(item, index) in equals" :key="index">
+      <b-col class="text-center d-flex flex-column align-items-center py-5" lg="4" md="12" v-for="(item, index) in equals" :key="index">
         <div class="equivalent">
           <h2 class="pb-3" v-html="item.name"/>
           <h3 class="font-weight-bold value">{{ item.value() }}</h3>
