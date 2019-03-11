@@ -175,7 +175,7 @@ export default {
   opacity: .9;
 }
 h1 {
-  font-weight: bolder;
+  font-weight: 900;
   font-size: 8vw;
 }
 .landing {

@@ -6,5 +6,6 @@ $btn-border-radius: 10px;
 $btn-border-width: 0;
 $enable-caret: false;
 
+@import './fonts/font-faces.css';
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~bootstrap-vue/src/index.scss';
