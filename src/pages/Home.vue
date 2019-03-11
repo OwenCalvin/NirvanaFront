@@ -21,7 +21,7 @@
       </b-col>
     </b-row>
     <b-row>
-      <svg class="wave-header n-fill-blue" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1920 47.962">
+      <svg class="wave-header n-fill-blue" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 47.962">
         <path d="M0,0H1920l-1.44,4.526s-282.222,49.9-572.71,39.819C1063.253,34.543,818.052,0,581.89,0,101.89,0,0,44.345,0,44.345Z"/>
       </svg>
     </b-row>
@@ -36,7 +36,7 @@
       </b-col>
     </b-row>
 
-    <b-row v-if="!began" align-h="center mt-5" align-v="center">
+    <b-row v-if="!began" class="mt-5" align-h="center" align-v="center">
       <b-col md="9">
         <div class="text-center">
           <h2 class="font-weight-black title n-light">
@@ -75,10 +75,10 @@
     </b-row>
 
     <b-row class="footer pt-5">
-      <svg class="wave-footer n-fill-light" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1920 40.962">
+      <svg class="wave-footer n-fill-light" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 40.962">
         <path  d="M1920,45.69H0l1.44-4.526s282.222-49.9,572.71-39.82c282.6,9.8,527.8,44.346,763.96,44.346,480,0,581.89-44.346,581.89-44.346Z"/>
       </svg>
-      <b-col class="footer-content d-flex flex-column n-bg-light justify-content-center">
+      <b-col class="footer-content text-center d-flex flex-column n-bg-light justify-content-center">
         <b-row class="flex-column " align-h="center" align-v="center">
           <h4 class="n-blue font-weight-bold sign">
             ecoblue.blue
@@ -236,8 +236,8 @@ export default {
 
 h1 {
   font-weight: 900;
-  font-size: 8vw;
-  text-shadow: 4px 4px 0px #ffffff34;
+  font-size: 9vw;
+  text-shadow: 4px 4px 0px rgba(255, 255, 255, 0.204);
 }
 
 .landing {
@@ -264,7 +264,7 @@ h1 {
 }
 
 a {
-  color: #869ff9;
+  color: rgb(134, 159, 249);
   transition: all .3s;
 }
 
@@ -281,14 +281,15 @@ a {
 }
 
 .wave-header {
-  filter: drop-shadow(0px 2px 30px #2b5dff3f);
+  margin-top: -1px;
+  filter: drop-shadow(0px 2px 30px rgba(43, 93, 255, 0.247));
 }
 
 .wave-footer {
-  filter: drop-shadow(0px 2px 30px #eff2ffb6);
+  filter: drop-shadow(0px 2px 30px rgba(239, 242, 255, 0.714));
 }
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
   h1 {
     font-size: 4em;
   }

@@ -10,9 +10,9 @@ $enable-caret: false;
 @import '~bootstrap/scss/bootstrap.scss';
 @import '~bootstrap-vue/src/index.scss';
 
-$n-blue: #2b5dff;
-$n-light: #eff2ff;
-$n-light-color: #2b5dff88;
+$n-blue: rgb(43, 93, 255);
+$n-light: rgb(239, 242, 255);
+$n-light-color: rgba(40, 90, 255, 0.533);
 
 .n-blue {
   color: $n-blue;

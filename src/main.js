@@ -1,3 +1,4 @@
+import '@babel/polyfill'
 import App from './App.vue'
 import VeeValidate from 'vee-validate'
 import router from './router'

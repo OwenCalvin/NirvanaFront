@@ -51,10 +51,10 @@ export default {
   transition: all .2s;
   user-select: none;
   .portion {
-    background: #2b5dff2a;
+    background: rgba(43, 93, 255, 0.165);
   }
   .portion-bar {
-    background: #2b5dff44;
+    background: rgba(43, 93, 255, 0.267);
   }
   &:hover {
     transform: scale(1.03);
@@ -65,24 +65,24 @@ export default {
 }
 
 .correct {
-  background: #2b5dff;
+  background: rgb(43, 93, 255);
   color: white;
   .portion {
-    background: #ffffff4d;
+    background: rgba(255, 255, 255, 0.302);
   }
   .portion-bar {
-    background: #ffffff85;
+    background: rgba(255, 255, 255, 0.522);
   }
 }
 
 .notCorrect {
   color: #FF2B2B;
-  background: #ff2b2b1c;
+  background: rgba(255, 43, 43, 0.11);
   .portion {
-    background: #ff2b2b27;
+    background: rgba(255, 43, 43, 0.153);
   }
   .portion-bar {
-    background: #ff2b2b54;
+    background: rgba(255, 43, 43, 0.329);
   }
 }
 
