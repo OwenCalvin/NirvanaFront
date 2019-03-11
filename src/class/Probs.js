@@ -34,16 +34,24 @@ export default class Probs {
   static getKw (ms) {
     const currentIndex = this.getCurrentTimeRangeIndex()
     if (currentIndex < this.lastIndex) {
-      clearInterval(this.timer)
-      try {
-        this.launch()
-      } catch (err) {
-        location.reload()
-      }
+      this.restart()
     } else {
       const prob = store.getters.probs[currentIndex]
-      this.lastIndex = currentIndex
-      return (prob.slope / this.convertToMs(this.range)) * ms + prob.value
+      if (prob) {
+        this.lastIndex = currentIndex
+        return (prob.slope / this.convertToMs(this.range)) * ms + prob.value
+      } else {
+        this.restart()
+      }
+    }
+  }
+
+  static restart () {
+    clearInterval(this.timer)
+    try {
+      this.launch()
+    } catch (err) {
+      location.reload()
     }
   }
 
