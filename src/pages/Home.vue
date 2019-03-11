@@ -1,11 +1,13 @@
 <template>
   <div>
     <b-row>
-      <b-col class="landing">
-        <b-row class="flex-column w-100 h-100" align-h="center" align-v="center">
+      <b-col class="landing n-bg-blue">
+        <b-row class="flex-column h-100" align-h="center" align-v="center">
           <h3 class="text-center">
             <p>
-              Depuis le 08.09.2019
+              <UnderlineText color="#ffffff33" height="5">
+                Depuis le 08.09.2019
+              </UnderlineText>
             </p>
             <p>
               le datacenter du CPLN a consomé
@@ -17,21 +19,22 @@
       </b-col>
     </b-row>
     <b-row>
-      <svg class="wave-header" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1920 47.962">
-        <path d="M0,0H1920V44s-296.2,8.914-563.647,0C1059.126,34.093,775.725,6.249,522.764,6.249,42.764,6.249,0,44,0,44Z" fill="#2b5dff"/>
+      <svg class="wave-header n-fill-blue" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1920 47.962">
+        <path d="M0,0H1920l-1.44,4.526s-282.222,49.9-572.71,39.819C1063.253,34.543,818.052,0,581.89,0,101.89,0,0,44.345,0,44.345Z"/>
       </svg>
     </b-row>
 
-    <b-row class="values" align-h="center" align-v="center">
-      <b-col class="text-center" md="4" xs="12" v-for="(item, index) in equals" :key="index">
-        <a href="#creation"><i class="fas fa-tree"></i></a>
-        <h2 v-html="item.name"/>
-        <h3>{{ item.value() }}</h3>
-        <h4 v-html="item.unit"/>
+    <b-row class="n-blue values" align-h="center" align-v="center">
+      <b-col class="text-center d-flex flex-column align-items-center py-5" md="4" xs="12" v-for="(item, index) in equals" :key="index">
+        <div class="equivalent">
+          <h2 class="pb-3" v-html="item.name"/>
+          <h3 class="font-weight-bold value">{{ item.value() }}</h3>
+          <h4 class="pt-3 n-light unit" v-html="item.unit"/>
+        </div>
       </b-col>
     </b-row>
 
-    <b-row >
+    <b-row class="questions my-5" align-h="center" align-v="center">
       <b-col v-if="questionIndex < questions.length">
         <Question
         v-if="question"
@@ -43,32 +46,38 @@
         @next="nextQuestion"/>
       </b-col>
       <b-col v-else>
-        finito
+        <b-row align-h="center" align-v="center">
+          <h3 class="font-weight-bold n-blue">
+            Merci de votre participation !
+          </h3>
+        </b-row>
       </b-col>
     </b-row>
 
-    <b-row class="footer">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1920 40.962">
-        <path d="M0,43.106H1920V11.569s-227.649-18.131-520.317-9c-270.666,8.448-566.5,37.616-797.38,37.616C122.3,40.188,0,10.772,0,10.772Z" fill="#e7ecff"/>
+    <b-row class="footer pt-5">
+      <svg class="wave-footer n-fill-light" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 1920 40.962">
+        <path  d="M1920,45.69H0l1.44-4.526s282.222-49.9,572.71-39.82c282.6,9.8,527.8,44.346,763.96,44.346,480,0,581.89-44.346,581.89-44.346Z"/>
       </svg>
-      <b-col class="footer-content">
+      <b-col class="footer-content d-flex flex-column n-bg-light justify-content-center">
         <b-row class="flex-column " align-h="center" align-v="center">
-            <h4 class="blue font-weight-bold">
-              ecoblue.blue
-            </h4>
+          <h4 class="n-blue font-weight-bold sign">
+            ecoblue.blue
+          </h4>
+        </b-row>
+        <b-row class="flex-column py-2" align-h="center" align-v="center">
+          <img src="../assets/img/fish.svg" class="favorite-fish"/>
         </b-row>
         <b-row class="flex-column" align-h="center" align-v="center">
-          <img src="../assets/img/fish.svg" class="FavoriteFish"/>
-        </b-row>
-        <b-row class="flex-column" align-h="center" align-v="center">
-          <h4>
-              <router-link to="/about">A propos du projet</router-link>
+          <h4 class="about">
+            <router-link to="/about">
+              <UnderlineText>
+                A propos du projet
+              </UnderlineText>
+            </router-link>
           </h4>
         </b-row>
       </b-col>
     </b-row>
-    
-
   </div>
 </template>
 
@@ -76,6 +85,7 @@
 import Button from '../components/Button'
 import Answer from '../components/Answer'
 import Question from '../components/Question'
+import UnderlineText from '../components/UnderlineText'
 import Api from '../class/Api'
 import { mapGetters } from 'vuex'
 
@@ -123,7 +133,7 @@ export default {
       return (this.currentValue / 0.01).toFixed(2)
     },
     paris() {
-      return (this.co2() / (180 * 58) * 100 ).toFixed(2)+ '%'
+      return (this.co2() / (180 * 58)).toFixed(2)
     },
     person() {
       return (this.currentValue / (7520 / 2) * 100).toFixed(2) + '%'
@@ -137,16 +147,18 @@ export default {
     equals() {
       return [
         {
-          name: 'Il aura fallu',
-          unit: 'arbres pour élimer tout ce CO<sub>2</sub> en 1 jour',
+          name: 'CO<sub>2</sub>',
+          unit: 'Est les kg de CO<sub>2</sub> rejeté dû à la consommation d\'électricité',
+          value: this.co2
+        },
+        {
+          name: 'Arbres',
+          unit: 'Est le nombre d\'arbres nécessaire pour élimer tout ce CO<sub>2</sub> en 1 jour',
           value: this.trees
-        }, {
-          name: 'Equivalent en CO<sub>2</sub> de',
-          unit: 'pourcent d\'un aller-retour Paris/Geneve a été produit',
-          value: this.paris
-        }, {
-          name: 'L\'équivalent en électricité de',
-          unit: 'pourcent de la consommation semestriel d\'un suisse moyen',
+        },
+        {
+          name: 'Consommation',
+          unit: 'Est pourcentage de la consommation semestriel d\'un suisse moyen',
           value: this.person
         }
       ]
@@ -155,7 +167,8 @@ export default {
   components: {
     Button,
     Answer,
-    Question
+    Question,
+    UnderlineText
   }
 }
 </script>
@@ -169,45 +182,74 @@ export default {
   font-weight: bold;
   border-radius: 10px
 }
+
+.equivalent {
+  max-width: 70%;
+}
+
 .landing h3 {
   font-weight: normal;
   font-size: 1.3em;
-  opacity: .9;
+  opacity: .98;
 }
+
 h1 {
   font-weight: 900;
   font-size: 8vw;
+  text-shadow: 4px 4px 0px #ffffff34;
 }
+
 .landing {
   z-index: 9999;
   color: white;
-  height: 40vh;
-  background: #2B5DFF;
+  min-height: 325px;
+  height: 45vh;
 }
+
 .values {
-  height: 60vh;
+  min-height: 55vh;
 }
-.footer{
-    margin-top: 15vh;
+
+.footer {
+  margin-top: 5em;
 }
-.footer-content{
-    background: #e7ecff;
-    padding-top: 2.5vh;
-    padding-bottom: 2vh;
+
+.footer-content {
+  height: 150px
 }
-.FavoriteFish{
-  height: 3vh;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+
+.favorite-fish{
+  height: 2em;
 }
-a{
+
+a {
   color: #869ff9;
-  border-bottom: 3px solid #dce3fd;
   transition: all .3s;
 }
-a:hover{
-  color: #4d73f8;
-  border-bottom: 3px solid #4d73f8;
-  text-decoration: none;
+
+.sign {
+  font-size: 1.3em;
+}
+
+.about {
+  font-size: 1.25em;
+}
+
+.value {
+  font-size: 4em;
+}
+
+.wave-header {
+  filter: drop-shadow(0px 2px 30px #2b5dff3f);
+}
+
+.wave-footer {
+  filter: drop-shadow(0px 2px 30px #eff2ffb6);
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: 4em;
+  }
 }
 </style>

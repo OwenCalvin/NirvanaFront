@@ -1,12 +1,12 @@
 <template>
-  <b-row align-v="center" align-h="center" class="flex-column text-center">
-    <b-col md="5">
-      <span class="blue">{{ index }} / {{ total }}</span>
-      <h3 class="blue">{{ item.question }}</h3>
-      <h3 v-if="answered" class="blue explanation">{{ item.explanation }}</h3>
+  <b-row id="answer" align-v="center" align-h="center" class="flex-column text-center">
+    <b-col md="6" xs="11">
+      <span class="n-blue">{{ index }} / {{ total }}</span>
+      <h3 class="question n-blue">{{ item.question }}</h3>
+      <h3 v-if="answered" class="n-blue explanation">{{ item.explanation }}</h3>
       <Answer
-      v-scroll-to="'#next'"
-      @click.native="answer(item, index)"
+      v-scroll-to="'#answer'"
+      @click="answer(item, index)"
       class="answer-item"
       v-for="(item, index) in item.answers"
       :correct="item.correct"
@@ -16,7 +16,7 @@
       :key="index">
         {{ item.text }}
       </Answer>
-      <Button id="next" @click.native="next" v-if="answered" class="btn-next">
+      <Button v-scroll-to="'#answer'" @click.native="next" v-if="answered" class="btn-next">
         {{ last ? 'Terminer' : 'Question suivante' }}
       </Button>
     </b-col>
@@ -63,19 +63,28 @@ export default {
 span {
   font-size: 1.2em
 }
+
 h3 {
   font-size: 1.7em;
   font-weight: bold;
 }
+
 .answer-item {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .btn-next {
   margin-bottom: 15px;
   margin-top: 15px;
 }
+
 .explanation {
   font-weight: normal
+}
+
+.question,
+.explanation {
+  font-size: 2em;
 }
 </style>

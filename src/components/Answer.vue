@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="answer" :class="{ correct, notCorrect, disabled }">
-      <div class="content">
+    <div class="n-bg-light n-blue answer" :class="{ correct, notCorrect, disabled }">
+      <div @click="$emit('click')" class="content">
         <slot/>
       </div>
       <div v-if="disabled" class="portion">
@@ -44,12 +44,10 @@ export default {
   display: inline-block;
   cursor: pointer;
   width: auto;
-  background: #2b5dff1e;
-  color: #2b5dffe3;
   border: none;
   border-radius: 8px !important;
   font-weight: bold;
-  font-size: 1.5em !important;
+  font-size: 1.6em !important;
   transition: all .2s;
   user-select: none;
   .portion {

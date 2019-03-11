@@ -22,11 +22,9 @@ export default {
   outline: none !important;
   font-family: 'Metropolis', sans-serif;
 }
+
 html, body {
   padding: 0;
   margin: 0;
-}
-.blue {
-  color: #2b5dff;
 }
 </style>
