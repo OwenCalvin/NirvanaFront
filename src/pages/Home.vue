@@ -323,6 +323,7 @@ a {
 }
 
 .wave-header {
+  margin-top: -1px;
   filter: drop-shadow(0px 2px 30px rgba(43, 93, 255, 0.247));
 }
 
