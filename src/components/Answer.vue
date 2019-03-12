@@ -14,7 +14,6 @@
 export default {
   props: ['correct', 'notCorrect', 'disabled', 'portion'],
   data: () => ({
-
   })
 }
 </script>
