@@ -73,9 +73,12 @@
         </b-col>
         <b-col v-else>
           <b-row align-h="center" align-v="center">
-            <h3 class="text-center font-weight-bold n-blue">
+            <h3 v-if="questions.length > 0" class="text-center font-weight-bold n-blue">
               Merci de votre participation !
             </h3>
+            <div v-else class="px-3 n-bg-light n-blue font-weight-bold loading py-2">
+              Chargement...
+            </div>
           </b-row>
         </b-col>
       </b-row>
