@@ -19,8 +19,6 @@
           <span class="kw-badge">kilowatt-heure</span>
         </b-row>
       </b-col>
-    </b-row>
-    <b-row>
       <svg class="wave-header n-fill-blue" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 47.962">
         <path d="M0,0H1920l-1.44,4.526s-282.222,49.9-572.71,39.819C1063.253,34.543,818.052,0,581.89,0,101.89,0,0,44.345,0,44.345Z"/>
       </svg>
@@ -50,7 +48,7 @@
               </UnderlineText>
             </h2>
             <p class="n-light sub-title">
-              Nous vous proposons on petit questionnaire afin de remettre en question vos habitudes
+              Nous vous proposons un petit questionnaire afin de remettre en question vos habitudes
             </p>
             <Button v-if="questions.length > 0" @click="nextQuestion">
               Commencer
