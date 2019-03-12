@@ -29,9 +29,13 @@
     <b-row class="n-blue" align-h="center" align-v="center">
       <b-col class="text-center values d-flex flex-column align-items-center justify-content-center py-5" lg="4" md="12" v-for="(item, index) in equals" :key="index">
         <div class="equivalent d-flex flex-column align-items-center justify-content-center">
-          <h2 class="pb-3" v-html="item.name"/>
+          <!--<h2 class="pb-3" v-html="item.name"/>-->
+          <img class="img-value pb-4" :src="require(`@/assets/img/${item.img}.svg`)" :alt="item.name">
           <h3 class="font-weight-bold value">{{ item.value() }}</h3>
-          <h4 class="pt-3 n-light unit" v-html="item.unit"/>
+          <h5 class="badge-unit n-bg-light n-blue font-weight-bold py-1 px-3" v-html="item.unit">
+
+          </h5>
+          <h4 class="pt-3 n-light desc" v-html="item.desc"/>
         </div>
       </b-col>
     </b-row>
@@ -182,35 +186,47 @@ export default {
     equals() {
       return [
         {
+          img: 'co2',
           name: 'CO<sub>2</sub>',
-          unit: 'Est le nombre de kg de CO<sub>2</sub> rejeté dû à la consommation d\'électricité',
+          unit: 'kg',
+          desc: `${this.co2()} kg de CO<sub>2</sub> ont été rejeté dû à la consommation d\'électricité`,
           value: this.co2
         },
         {
+          img: 'tree',
           name: 'Arbres',
-          unit: 'Est le nombre d\'arbres nécessaire pour élimer tout ce CO<sub>2</sub> en 1 jour',
+          unit: 'Arbre',
+          desc: `Il aura fallu ${this.trees()} arbres pour élimer tout ce CO<sub>2</sub> en 1 jour`,
           value: this.trees
         },
         {
+          img: 'google',
           name: 'Google',
-          unit: 'L\'equivalent de CO<sub>2</sub> en recherche google (1 recherche ≈ 7g)',
+          unit: 'Recherche',
+          desc: `Vous auriez pu faire ${this.gsearch()} recherches google pour rejeter autant de CO<sub>2</sub>`,
           value: this.gsearch
         },
         {
+          img: 'plane',
           name: 'Avion',
-          unit: 'L\'équivalent de CO<sub>2</sub> rejeté en voyage Paris/Genève',
+          unit: 'Voyage Paris-Genève',
+          desc: `Vous auriez pu faire ${this.paris()} voyage Paris-Genève en avion pour rejeter autant de CO<sub>2</sub>`,
           value: this.paris
         },
         {
-          name: 'Consommation',
-          unit: 'Est pourcentage de la consommation semestriel d\'un suisse en électricité',
-          value: this.person
-        },
-        {
+          img: 'battery',
           name: 'Batteries',
-          unit: 'Combien de fois on pourrait charger un smartphone avec autant de kWh',
+          unit: 'Batterie',
+          desc: `Vous auriez pu charger ${this.batteries()} fois votre smartphone avec autant de kWh`,
           value: this.batteries
         },
+        {
+          img: 'light',
+          name: 'Consommation',
+          unit: 'Consommation semestrielle',
+          desc: `${this.currentValue.toFixed(2)} kWh équivant à ${this.person()} de la consommation semestrielle d\'un suisse moyen`,
+          value: this.person
+        }
       ]
     }
   },
@@ -253,7 +269,7 @@ export default {
 h1 {
   font-weight: 900;
   font-size: 9vw;
-  text-shadow: 4px 4px 0px rgba(255, 255, 255, 0.204);
+  text-shadow: 0.027em 0.027em 0px rgba(255, 255, 255, 0.204);
 }
 
 .landing {
@@ -265,7 +281,7 @@ h1 {
 
 .values {
   height: 50vh;
-  min-height: 375px;
+  min-height: 400px;
   max-height: 500px;
 }
 
@@ -299,8 +315,8 @@ a {
 }
 
 .questions {
-  margin-top: 12em;
-  margin-bottom: 12em;
+  margin-top: 200px;
+  margin-bottom: 200px;
 }
 
 .wave-header {
@@ -322,7 +338,16 @@ a {
   font-size: 1.5em;
 }
 
-.unit {
-  max-width: 80%;
+.badge-unit {
+  border-radius: 0.3em;
+}
+
+.desc {
+  max-width: 87%;
+}
+
+.img-value {
+  width: 4em;
+  opacity: 0.8;
 }
 </style>
