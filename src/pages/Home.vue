@@ -68,7 +68,7 @@
         </b-col>
         <b-col v-else>
           <b-row align-h="center" align-v="center">
-            <h3 class="font-weight-bold n-blue">
+            <h3 class="text-center font-weight-bold n-blue">
               Merci de votre participation !
             </h3>
           </b-row>

@@ -48,7 +48,7 @@ export default {
 <style lang="scss">
 * {
   outline: none !important;
-  font-family: 'Metropolis', sans-serif;
+  font-family: 'Metropolis', 'Helvetica Neue', 'Segoe Ui', 'Roboto', sans-serif;
 }
 
 .no-browser {
