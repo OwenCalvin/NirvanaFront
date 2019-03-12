@@ -19,8 +19,8 @@
           <span class="kw-badge">kilowatt-heure</span>
         </b-row>
       </b-col>
-      <svg class="wave-header n-fill-blue" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 47.962">
-        <path d="M0,0H1920l-1.44,4.526s-282.222,49.9-572.71,39.819C1063.253,34.543,818.052,0,581.89,0,101.89,0,0,44.345,0,44.345Z"/>
+      <svg class="wave-header n-fill-blue" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 45.691">
+        <path d="M0,0H1920l-1.44,4.526s-282.222,49.9-572.71,39.82C1063.25,34.545,818.05,0,581.89,0,101.89,0,0,44.345,0,44.345Z"/>
       </svg>
     </b-row>
 
@@ -82,8 +82,8 @@
     </div>
 
     <b-row class="footer pt-5">
-      <svg class="wave-footer n-fill-light" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 40.962">
-        <path  d="M1920,45.69H0l1.44-4.526s282.222-49.9,572.71-39.82c282.6,9.8,527.8,44.346,763.96,44.346,480,0,581.89-44.346,581.89-44.346Z"/>
+      <svg class="wave-footer n-fill-light" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 40.962">
+        <path d="M1920,45.69H0l1.44-4.526s282.222-49.9,572.71-39.82c282.6,9.8,527.8,44.346,763.96,44.346,480,0,581.89-44.346,581.89-44.346Z"/>
       </svg>
       <b-col class="footer-content text-center d-flex flex-column n-bg-light justify-content-center">
         <b-row class="flex-column " align-h="center" align-v="center">
@@ -326,6 +326,7 @@ a {
 }
 
 .wave-footer {
+  margin-bottom: -1px;
   filter: drop-shadow(0px 2px 30px rgba(239, 242, 255, 0.714));
 }
 
