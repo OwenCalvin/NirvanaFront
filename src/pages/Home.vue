@@ -190,14 +190,14 @@ export default {
           img: 'co2',
           name: 'CO<sub>2</sub>',
           unit: 'kg',
-          desc: `${this.co2()} kg de CO<sub>2</sub> ont été rejeté dû à la consommation d\'électricité`,
+          desc: `${this.co2()} kg de CO<sub>2</sub> ont été rejetés dus à la consommation d\'électricité`,
           value: this.co2
         },
         {
           img: 'tree',
           name: 'Arbres',
           unit: 'arbres',
-          desc: `Il aura fallu ${this.trees()} arbres pour éliminer tout ce CO<sub>2</sub> en 1 jour`,
+          desc: `Il aurait fallu ${this.trees()} arbres pour éliminer ce CO<sub>2</sub> en 1 jour`,
           value: this.trees
         },
         {
@@ -218,14 +218,14 @@ export default {
           img: 'battery',
           name: 'Batteries',
           unit: 'batteries',
-          desc: `Vous auriez pu charger ${this.batteries()} fois votre smartphone avec autant de kWh`,
+          desc: `Vous auriez pu recharger ${this.batteries()} fois votre smartphone avec autant d'énergie`,
           value: this.batteries
         },
         {
           img: 'light',
           name: 'Consommation',
           unit: 'consommation semestrielle',
-          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation semestrielle d\'un suisse moyen`,
+          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation électrique semestrielle d\'un citoyen suisse moyen`,
           value: this.person
         }
       ]
