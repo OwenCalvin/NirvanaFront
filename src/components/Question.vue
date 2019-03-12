@@ -13,6 +13,7 @@
       :notCorrect="item.notCorrect"
       :disabled="answered"
       :portion="item.portion"
+      :selected="index === selected"
       :key="index">
         {{ item.text }}
       </Answer>
@@ -30,11 +31,13 @@ import Answer from './Answer';
 export default {
   props: ['item', 'total', 'index', 'last'],
   data: () => ({
-    answered: false
+    answered: false,
+    selected: -1
   }),
   methods: {
     answer(item, index) {
       if (!this.answered) {
+        this.selected = index
         this.item.answers.map((answer, index) => {
           if (answer.good) {
             this.$set(answer, 'correct', true)
@@ -48,6 +51,7 @@ export default {
       }
     },
     next() {
+      this.selected = -1
       this.answered = false
       this.$emit('next')
     }

@@ -72,9 +72,12 @@
         </b-col>
         <b-col v-else>
           <b-row align-h="center" align-v="center">
-            <h3 class="text-center font-weight-bold n-blue">
+            <h3 v-if="questions.length > 0" class="text-center font-weight-bold n-blue">
               Merci de votre participation !
             </h3>
+            <div v-else class="px-3 n-bg-light n-blue font-weight-bold loading py-2">
+              Chargement...
+            </div>
           </b-row>
         </b-col>
       </b-row>
@@ -166,7 +169,7 @@ export default {
       return (this.currentValue / 0.01).toFixed(0)
     },
     paris() {
-      return (this.co2() * 1000 / (180 * 58)).toFixed(4)
+      return (this.co2() / (180 * 58)).toFixed(4)
     },
     person() {
       return (this.currentValue / (7520 / 2) * 100).toFixed(2) + '%'
