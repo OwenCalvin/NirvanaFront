@@ -4,9 +4,7 @@
       <div @click="$emit('click')" class="content">
         <slot/>
       </div>
-      <div v-if="disabled" class="portion">
-        <div class="portion-bar" :style="{width: `${portion * 100}%`}">
-        </div>
+      <div v-if="disabled" class="portion" :style="{width: `${portion * 100}%`}">
       </div>
     </div>
   </div>
@@ -23,12 +21,9 @@ export default {
 
 <style scoped lang="scss">
 .portion {
-  height: 6px;
-  z-index: 99;
-  overflow: hidden;
-}
-
-.portion-bar {
+  top: 0;
+  left: 0;
+  position: absolute;
   border-radius: 10px;
   height: 100%;
 }
@@ -38,6 +33,7 @@ export default {
 }
 
 .answer {
+  position: relative;
   overflow: hidden;
   max-width: 15em;
   min-width: 5em;
@@ -51,10 +47,7 @@ export default {
   transition: all .2s;
   user-select: none;
   .portion {
-    background: rgba(43, 93, 255, 0.165);
-  }
-  .portion-bar {
-    background: rgba(43, 93, 255, 0.267);
+    background: rgba(43, 93, 255, 0.123);
   }
   &:hover {
     transform: scale(1.03);
@@ -68,10 +61,7 @@ export default {
   background: rgb(43, 93, 255);
   color: white;
   .portion {
-    background: rgba(255, 255, 255, 0.302);
-  }
-  .portion-bar {
-    background: rgba(255, 255, 255, 0.522);
+    background: rgba(255, 255, 255, 0.205);
   }
 }
 
@@ -79,10 +69,7 @@ export default {
   color: #FF2B2B;
   background: rgba(255, 43, 43, 0.11);
   .portion {
-    background: rgba(255, 43, 43, 0.153);
-  }
-  .portion-bar {
-    background: rgba(255, 43, 43, 0.329);
+    background: rgba(255, 43, 43, 0.123);
   }
 }
 
