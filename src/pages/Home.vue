@@ -8,7 +8,7 @@
               <UnderlineText color="#ffffff33" height="5">
                 Depuis le 08.03.2019
                 <p>
-                  le datacenter du CPLN a consomé
+                  le local serveur du CPLN a consommé
                 </p>
               </UnderlineText>
             </p>
@@ -48,7 +48,7 @@
               </UnderlineText>
             </h2>
             <p class="n-light sub-title">
-              Nous vous proposons un petit questionnaire afin de remettre en question vos habitudes
+              Petit questionnaire afin de remettre en question vos habitudes
             </p>
             <Button v-if="questions.length > 0" @click="nextQuestion">
               Commencer
@@ -98,7 +98,7 @@
           <h4 class="about">
             <router-link to="/about">
               <UnderlineText>
-                A propos du projet
+                À propos du projet
               </UnderlineText>
             </router-link>
           </h4>
