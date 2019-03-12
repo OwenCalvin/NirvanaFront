@@ -30,7 +30,7 @@
       <b-col class="text-center values d-flex flex-column align-items-center justify-content-center py-5" lg="4" md="12" v-for="(item, index) in equals" :key="index">
         <div class="equivalent d-flex flex-column align-items-center justify-content-center">
           <!--<h2 class="pb-3" v-html="item.name"/>-->
-          <img class="img-value pb-4" :src="require(`@/assets/img/${item.img}.svg`)" :alt="item.name">
+          <img class="img-value pb-4" :src="`/img/${item.img}.svg`" :alt="item.name">
           <h3 class="font-weight-bold value">{{ item.value() }}</h3>
           <h5 class="badge-unit n-bg-light n-blue font-weight-bold py-1 px-3" v-html="item.unit">
 
@@ -91,7 +91,7 @@
           </h4>
         </b-row>
         <b-row class="flex-column py-2" align-h="center" align-v="center">
-          <img src="../assets/img/fish.svg" class="favorite-fish"/>
+          <img src="/img/fish.svg" class="favorite-fish"/>
         </b-row>
         <b-row class="flex-column" align-h="center" align-v="center">
           <h4 class="about">

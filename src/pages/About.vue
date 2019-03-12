@@ -9,12 +9,12 @@
           </h4>
         </b-row>
         <b-row class="flex-column pb-4" align-h="center" align-v="center">
-          <img src="../assets/img/fish.svg" class="favorite-fish"/>
+          <img src="/img/fish.svg" class="favorite-fish"/>
         </b-row>
         <b-row class="flex-column pb-2" align-h="center" align-v="center">
           <h1 class="n-blue font-weight-bold">
             <UnderlineText>
-                L'équipe
+              L'équipe
             </UnderlineText>
           </h1>
         </b-row>
