@@ -52,9 +52,12 @@
             <p class="n-light sub-title">
               Nous vous proposons on petit questionnaire afin de remettre en question vos habitudes
             </p>
-            <Button @click="nextQuestion">
+            <Button v-if="questions.length > 0" @click="nextQuestion">
               Commencer
             </Button>
+            <div v-else class="n-bg-light n-blue font-weight-bold loading py-2">
+              Chargement...
+            </div>
           </div>
         </b-col>
       </b-row>
@@ -344,6 +347,11 @@ a {
 
 .desc {
   max-width: 87%;
+}
+
+.loading {
+  width: auto;
+  border-radius: 0.3em;
 }
 
 .img-value {
