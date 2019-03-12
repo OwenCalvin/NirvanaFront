@@ -170,7 +170,7 @@ export default {
       return (this.currentValue / 0.01).toFixed(0)
     },
     paris() {
-      return (this.co2() * 1000 / (180 * 58)).toFixed(4)
+      return (this.co2() / (180 * 58)).toFixed(4)
     },
     person() {
       return (this.currentValue / (7520 / 2) * 100).toFixed(2) + '%'
