@@ -26,9 +26,9 @@
       </svg>
     </b-row>
 
-    <b-row class="n-blue values" align-h="center" align-v="center">
-      <b-col class="text-center d-flex flex-column align-items-center py-5" lg="4" md="12" v-for="(item, index) in equals" :key="index">
-        <div class="equivalent">
+    <b-row class="n-blue" align-h="center" align-v="center">
+      <b-col class="text-center values d-flex flex-column align-items-center justify-content-center py-5" lg="4" md="12" v-for="(item, index) in equals" :key="index">
+        <div class="equivalent d-flex flex-column align-items-center justify-content-center">
           <h2 class="pb-3" v-html="item.name"/>
           <h3 class="font-weight-bold value">{{ item.value() }}</h3>
           <h4 class="pt-3 n-light unit" v-html="item.unit"/>
@@ -36,43 +36,45 @@
       </b-col>
     </b-row>
 
-    <b-row v-if="!began" class="mt-5" align-h="center" align-v="center">
-      <b-col md="9">
-        <div class="text-center">
-          <h2 class="font-weight-black title n-light">
-            <UnderlineText height="13" bottom="1">
-              Questionnaire
-            </UnderlineText>
-          </h2>
-          <p class="n-light sub-title">
-            Nous vous proposons on petit questionnaire afin de remettre en question vos habitudes
-          </p>
-          <Button @click="nextQuestion">
-            Commencer
-          </Button>
-        </div>
-      </b-col>
-    </b-row>
+    <div class="questions">
+      <b-row v-if="!began" class="mt-5" align-h="center" align-v="center">
+        <b-col md="9">
+          <div class="text-center">
+            <h2 class="font-weight-black title n-light">
+              <UnderlineText height="13" bottom="1">
+                Questionnaire
+              </UnderlineText>
+            </h2>
+            <p class="n-light sub-title">
+              Nous vous proposons on petit questionnaire afin de remettre en question vos habitudes
+            </p>
+            <Button @click="nextQuestion">
+              Commencer
+            </Button>
+          </div>
+        </b-col>
+      </b-row>
 
-    <b-row v-else class="questions my-5" align-h="center" align-v="center">
-      <b-col v-if="questionIndex < questions.length">
-        <Question
-        v-if="question"
-        :item="question"
-        :index="questionIndex + 1"
-        :total="questions.length"
-        :last="questionIndex + 1 === questions.length"
-        @answered="answer"
-        @next="nextQuestion"/>
-      </b-col>
-      <b-col v-else>
-        <b-row align-h="center" align-v="center">
-          <h3 class="font-weight-bold n-blue">
-            Merci de votre participation !
-          </h3>
-        </b-row>
-      </b-col>
-    </b-row>
+      <b-row v-else class="questions my-5" align-h="center" align-v="center">
+        <b-col v-if="questionIndex < questions.length">
+          <Question
+          v-if="question"
+          :item="question"
+          :index="questionIndex + 1"
+          :total="questions.length"
+          :last="questionIndex + 1 === questions.length"
+          @answered="answer"
+          @next="nextQuestion"/>
+        </b-col>
+        <b-col v-else>
+          <b-row align-h="center" align-v="center">
+            <h3 class="font-weight-bold n-blue">
+              Merci de votre participation !
+            </h3>
+          </b-row>
+        </b-col>
+      </b-row>
+    </div>
 
     <b-row class="footer pt-5">
       <svg class="wave-footer n-fill-light" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 40.962">
@@ -151,19 +153,22 @@ export default {
       localStorage.setItem('questionIndex', this.questionIndex)
     },
     co2() {
-      return (129 * this.currentValue / 100).toFixed(2)
+      return (129 * this.currentValue / 1000).toFixed(2)
     },
     trees() {
-      return (this.co2() * (365 / 25)).toFixed(2)
+      return (this.co2() * (365 / 25)).toFixed(0)
     },
     batteries() {
-      return (this.currentValue / 0.01).toFixed(2)
+      return (this.currentValue / 0.01).toFixed(0)
     },
     paris() {
-      return (this.co2() / (180 * 58)).toFixed(2)
+      return (this.co2() / (180 * 58)).toFixed(4)
     },
     person() {
       return (this.currentValue / (7520 / 2) * 100).toFixed(2) + '%'
+    },
+    gsearch() {
+      return (this.co2() * 1000 / 7).toFixed(0)
     }
   },
   computed: {
@@ -178,7 +183,7 @@ export default {
       return [
         {
           name: 'CO<sub>2</sub>',
-          unit: 'Est les kg de CO<sub>2</sub> rejeté dû à la consommation d\'électricité',
+          unit: 'Est le nombre de kg de CO<sub>2</sub> rejeté dû à la consommation d\'électricité',
           value: this.co2
         },
         {
@@ -187,10 +192,25 @@ export default {
           value: this.trees
         },
         {
+          name: 'Google',
+          unit: 'L\'equivalent de CO<sub>2</sub> en recherche google (1 recherche ≈ 7g)',
+          value: this.gsearch
+        },
+        {
+          name: 'Avion',
+          unit: 'L\'équivalent de CO<sub>2</sub> rejeté en voyage Paris/Genève',
+          value: this.paris
+        },
+        {
           name: 'Consommation',
-          unit: 'Est pourcentage de la consommation semestriel d\'un suisse',
+          unit: 'Est pourcentage de la consommation semestriel d\'un suisse en électricité',
           value: this.person
-        }
+        },
+        {
+          name: 'Batteries',
+          unit: 'Combien de fois on pourrait charger un smartphone avec autant de kWh',
+          value: this.batteries
+        },
       ]
     }
   },
@@ -224,10 +244,6 @@ export default {
   border-radius: 10px
 }
 
-.equivalent {
-  max-width: 70%;
-}
-
 .landing h3 {
   font-weight: normal;
   font-size: 1.3em;
@@ -244,11 +260,13 @@ h1 {
   z-index: 9999;
   color: white;
   min-height: 325px;
-  height: 45vh;
+  height: 50vh;
 }
 
 .values {
-  min-height: 55vh;
+  height: 50vh;
+  min-height: 375px;
+  max-height: 500px;
 }
 
 .footer {
@@ -280,6 +298,11 @@ a {
   font-size: 4em;
 }
 
+.questions {
+  margin-top: 12em;
+  margin-bottom: 12em;
+}
+
 .wave-header {
   margin-top: -1px;
   filter: drop-shadow(0px 2px 30px rgba(43, 93, 255, 0.247));
@@ -297,5 +320,9 @@ a {
 
 .sub-title {
   font-size: 1.5em;
+}
+
+.unit {
+  max-width: 80%;
 }
 </style>
