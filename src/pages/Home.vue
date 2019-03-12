@@ -23,7 +23,6 @@
         <path d="M0,0H1920l-1.44,4.526s-282.222,49.9-572.71,39.82C1063.25,34.545,818.05,0,581.89,0,101.89,0,0,44.345,0,44.345Z"/>
       </svg>
     </b-row>
-
     <b-row class="n-blue" align-h="center" align-v="center">
       <b-col class="text-center values d-flex flex-column align-items-center justify-content-center py-5" lg="4" md="12" v-for="(item, index) in equals" :key="index">
         <div class="equivalent d-flex flex-column align-items-center justify-content-center">
