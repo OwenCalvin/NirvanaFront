@@ -6,7 +6,7 @@
           <h3 class="text-center">
             <p class="font-weight-medium">
               <UnderlineText color="#ffffff33" height="5">
-                Depuis le 08.03.2019
+                Depuis le 08.03.2019,
                 <p>
                   le local serveur du CPLN a consommé
                 </p>
