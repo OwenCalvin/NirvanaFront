@@ -16,7 +16,7 @@
             </p>
           </h3>
           <h1>{{ currentValue.toFixed(2) }}</h1>
-          <span class="kw-badge">Kilowatt-heure</span>
+          <span class="kw-badge">kilowatt-heure</span>
         </b-row>
       </b-col>
     </b-row>
@@ -195,36 +195,36 @@ export default {
         {
           img: 'tree',
           name: 'Arbres',
-          unit: 'Arbre',
-          desc: `Il aura fallu ${this.trees()} arbres pour élimer tout ce CO<sub>2</sub> en 1 jour`,
+          unit: 'arbres',
+          desc: `Il aura fallu ${this.trees()} arbres pour éliminer tout ce CO<sub>2</sub> en 1 jour`,
           value: this.trees
         },
         {
           img: 'google',
           name: 'Google',
-          unit: 'Recherche',
+          unit: 'recherches',
           desc: `Vous auriez pu faire ${this.gsearch()} recherches google pour rejeter autant de CO<sub>2</sub>`,
           value: this.gsearch
         },
         {
           img: 'plane',
           name: 'Avion',
-          unit: 'Voyage Paris-Genève',
-          desc: `Vous auriez pu faire ${this.paris()} voyage Paris-Genève en avion pour rejeter autant de CO<sub>2</sub>`,
+          unit: 'voyages Paris-Genève',
+          desc: `Vous auriez pu faire ${this.paris()} voyages Paris-Genève en avion pour rejeter autant de CO<sub>2</sub>`,
           value: this.paris
         },
         {
           img: 'battery',
           name: 'Batteries',
-          unit: 'Batterie',
+          unit: 'batteries',
           desc: `Vous auriez pu charger ${this.batteries()} fois votre smartphone avec autant de kWh`,
           value: this.batteries
         },
         {
           img: 'light',
           name: 'Consommation',
-          unit: 'Consommation semestrielle',
-          desc: `${this.currentValue.toFixed(2)} kWh équivant à ${this.person()} de la consommation semestrielle d\'un suisse moyen`,
+          unit: 'consommation semestrielle',
+          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation semestrielle d\'un suisse moyen`,
           value: this.person
         }
       ]
