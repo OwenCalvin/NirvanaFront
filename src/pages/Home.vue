@@ -279,7 +279,7 @@ h1 {
   z-index: 9999;
   color: white;
   min-height: 325px;
-  height: 50vh;
+  height: 45vh;
 }
 
 .values {
