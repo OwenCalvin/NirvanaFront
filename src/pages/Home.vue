@@ -204,7 +204,7 @@ export default {
           img: 'battery',
           name: 'Batteries',
           unit: 'batteries',
-          desc: `Vous auriez pu recharger ${this.batteries()} fois votre smartphone avec autant d'énergie`,
+          desc: `Vous auriez pu recharger ${this.batteries()} fois votre smartphone avec autant de kWh`,
           value: this.batteries
         },
         {
@@ -218,7 +218,7 @@ export default {
           img: 'co2',
           name: 'CO<sub>2</sub>',
           unit: 'kg',
-          desc: `${this.co2()} kg de CO<sub>2</sub> ont été rejetés dus à la consommation d'électricité`,
+          desc: `${this.co2()} kg de CO<sub>2</sub> ont été rejetés dû à la consommation électrique`,
           value: this.co2
         },
         {
@@ -363,6 +363,7 @@ a {
 @media (max-width: 700px) {
   h1 {
     font-size: 4em;
+    text-shadow: 0.052em 0.052em 0px rgba(255, 255, 255, 0.204);
   }
   .title {
     font-size: 2.5em;
