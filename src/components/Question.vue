@@ -2,8 +2,8 @@
   <b-row id="answer" align-v="center" align-h="center" class="flex-column text-center">
     <b-col md="6" xs="11">
       <span class="n-blue">{{ index }} / {{ total }}</span>
-      <h3 class="question n-blue">{{ item.question }}</h3>
-      <h3 v-if="answered" class="n-blue explanation">{{ item.explanation }}</h3>
+      <h3 class="question n-blue" v-html="item.question"/>
+      <h3 v-if="answered" class="n-blue explanation" v-html="item.explanation"/>
       <Answer
       v-scroll-to="'#answer'"
       @click="answer(item, index)"

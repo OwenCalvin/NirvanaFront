@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="n-bg-light n-blue answer" :class="{ correct, notCorrect, disabled, selected }">
+    <div class="n-bg-light n-blue answer py-2 px-3" :class="{ correct, notCorrect, disabled, selected }">
       <div @click="$emit('click')" class="content">
         <slot/>
       </div>
@@ -26,18 +26,14 @@ export default {
   height: 100%;
 }
 
-.content {
-  padding: 5px 15px;
-}
-
 .answer {
+  width: 100%;
   position: relative;
   overflow: hidden;
   max-width: 15em;
   min-width: 5em;
   display: inline-block;
   cursor: pointer;
-  width: auto;
   border: none;
   border-radius: 10px !important;
   font-weight: bold;
@@ -63,7 +59,6 @@ export default {
   color: #FF2B2B;
   opacity: 0.5;
   background: transparent;
-  width: 100%;
   cursor: default;
   .portion {
     background: rgba(255, 43, 43, 0.123);
