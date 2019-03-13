@@ -164,7 +164,7 @@ export default {
       return (129 * this.currentValue / 1000).toFixed(2)
     },
     trees() {
-      return (this.co2() * (365 / 25)).toFixed(0)
+      return (this.co2() * (365 / 25)).toFixed(2)
     },
     batteries() {
       return (this.currentValue / 0.01).toFixed(0)
