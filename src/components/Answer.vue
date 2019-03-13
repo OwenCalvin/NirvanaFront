@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="n-bg-light n-blue answer" :class="{ correct, notCorrect, disabled }">
+    <div class="n-bg-light n-blue answer" :class="{ correct, notCorrect, disabled, selected }">
       <div @click="$emit('click')" class="content">
         <slot/>
       </div>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  props: ['correct', 'notCorrect', 'disabled', 'portion'],
+  props: ['correct', 'notCorrect', 'disabled', 'selected', 'portion'],
   data: () => ({
   })
 }
@@ -23,7 +23,6 @@ export default {
   top: 0;
   left: 0;
   position: absolute;
-  border-radius: 10px;
   height: 100%;
 }
 
@@ -40,7 +39,7 @@ export default {
   cursor: pointer;
   width: auto;
   border: none;
-  border-radius: 8px !important;
+  border-radius: 10px !important;
   font-weight: bold;
   font-size: 1.6em !important;
   transition: all .2s;
@@ -56,30 +55,37 @@ export default {
   }
 }
 
-.correct {
-  background: rgb(43, 93, 255);
-  color: white;
-  .portion {
-    background: rgba(255, 255, 255, 0.205);
-  }
-}
-
-.notCorrect {
-  color: #FF2B2B;
-  background: rgba(255, 43, 43, 0.11);
-  .portion {
-    background: rgba(255, 43, 43, 0.123);
-  }
+.selected {
+  border: 5px solid #FF2B2B;
 }
 
 .disabled {
+  color: #FF2B2B;
+  opacity: 0.5;
+  background: transparent;
   width: 100%;
   cursor: default;
+  .portion {
+    background: rgba(255, 43, 43, 0.123);
+  }
   &:hover {
     transform: scale(1);
   }
   &:active {
     transform: scale(1);
   }
+}
+
+.disabled.correct {
+  color: rgb(43, 93, 255);
+  opacity: 1;
+  .portion {
+    background: rgba(43, 93, 255, 0.123);
+  }
+}
+
+.disabled.correct.selected {
+  border-color: rgba(43, 93, 255, 0.358);
+  box-shadow: 0px 7px 30px 0px rgba(43, 93, 255, 0.11);
 }
 </style>

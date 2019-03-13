@@ -23,8 +23,8 @@
 
     <!-- Team -->
     <b-container fluid>
-      <b-row class="text-center">
-        <b-col md="3" class="py-3" v-for="(item, index) in names" :key="index">
+      <b-row class="text-center pb-5">
+        <b-col md="3" class="py-4" v-for="(item, index) in names" :key="index">
           <h3 class="n-blue font-weight-bold">
             {{ item.text }}
           </h3>
@@ -33,14 +33,17 @@
     </b-container>
     
     <!-- Le projet -->
-    <b-row class="section projet-section">
-      <b-col>
-        <b-row class="flex-column pt-2" align-h="center" align-v="center">
+    <b-row>
+      <svg class="wave-footer n-fill-light mt-5" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 40.962">
+        <path d="M1920,45.69H0l1.44-4.526s282.222-49.9,572.71-39.82c282.6,9.8,527.8,44.346,763.96,44.346,480,0,581.89-44.346,581.89-44.346Z"/>
+      </svg>
+      <b-col class="projet-section">
+        <b-row class="flex-column pt-5" align-h="center" align-v="center">
           <h1 class="n-blue font-weight-bold">
-              L'équipe
+              Le projet
           </h1>
         </b-row>
-        <b-row class="flex-column pb-2 " align-h="center" align-v="center">
+        <b-row class="flex-column pb-5" align-h="center" align-v="center">
           <p>Ce projet constitue le produit final du projet de TIP "Comment sensibiliser les usagers du CPLN à la pollution numérique ?". Réalisé dans une démarche de sensibilisation, il montre la
           consommation des serveurs informatiques du CPLN en kWh. Les données sont une estimation du temps réel calculée à l'aide de techniques d'apprentissage par statistique (machine learning). Des
           comparaisons parlantes d'éléments de la vie réelle sont également calculées depuis le nombre de kWh. Pour ces conversions, nous nous sommes basés sur plusieurs sources, qui peuvent être
@@ -48,6 +51,9 @@
           pollution numérique.</p>
         </b-row>
       </b-col>
+      <svg class="wave-header n-fill-light" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 45.691">
+        <path d="M0,0H1920l-1.44,4.526s-282.222,49.9-572.71,39.82C1063.25,34.545,818.05,0,581.89,0,101.89,0,0,44.345,0,44.345Z"/>
+      </svg>
     </b-row>
 
     <!-- Pourquoi ?-->
@@ -60,40 +66,36 @@
             </UnderlineText>
           </h1>
         </b-row>
-        <b-row class="flex-column pb-2 " align-h="center" align-v="center">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ultrices accumsan dui, ultrices rutrum purus mattis ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
-            Aliquam aliquam tellus massa, sed ornare leo blandit ornare. In posuere mollis tincidunt. Donec sollicitudin nulla lacus, vestibulum eleifend elit vehicula vel. Praesent sed nibh rhoncus,
-             ultricies quam sit amet, venenatis tortor. Pellentesque sodales non augue ac pulvinar. Sed vehicula justo sit amet ligula hendrerit, ac ultricies sapien interdum. Donec maximus justo nunc, 
-             quis semper dolor fringilla non. Duis vitae leo felis. Nunc sed dolor et dui posuere placerat id in erat.</p>
+        <b-row class="flex-column " align-h="center" align-v="center">
+          <p>Étant nous-mêmes des consommateurs des services internet et sensibles à l’écologie, le choix de ce projet nous a tout de suite conquis. Nous savons que c’est une question qui ne parle pas à tout le monde au premier abord,
+             même si elle nous concerne tous. C’est ce “flou” sur la question qui nous a motivé à tenter d’y répondre. L'utilisation des outils informatiques ne cesse de croître. 
+             En tant qu’informaticiens, nous contribuons à l’essor des nouvelles technologies. De ce fait, nous participons encore plus directement à cette pollution.</p>
         </b-row>
       </b-col>
     </b-row>
 
-    <!-- Pour qui ? -->
+    <!-- Pour qui ?
     <b-row class="section">
       <b-col>
         <b-row class="flex-column pt-2" align-h="center" align-v="center">
           <h1 class="n-blue font-weight-bold">
-            <UnderlineText>
                 Pour qui ?
-            </UnderlineText>
           </h1>
         </b-row>
-        <b-row class="flex-column pb-2 " align-h="center" align-v="center">
-          <p>Donec semper condimentum dolor eget rutrum. Praesent nisl mauris, aliquet eget arcu sit amet, tincidunt iaculis nisi. Fusce vitae est molestie, fringilla nisi quis, dignissim dui. 
-            Suspendisse felis turpis, vestibulum id mattis id, tempor at purus. Vestibulum posuere tincidunt scelerisque. Donec eu dui leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
-            Sed eu dolor lacinia, feugiat quam id, auctor arcu.</p>
+        <b-row class="flex-column" align-h="center" align-v="center">
+          <p> À tout usagers des ressources informatiques du CPLN sur l'impact environnemental de ces actes. 
+            Le but est de montrer, par des exemples, des comparaisons et des statistiques, que la pollution numérique est un réel problème. 
+            Qui devra être amenée à être résolue si nous voulons continuer à utiliser les outils informatiques comme nous les utilisons aujourd’hui. 
+            Nous espérons, dans le futur, être les auteurs des ces solutions. </p>
         </b-row>
       </b-col>
-    </b-row>
+    </b-row> -->
 
     <!-- Bye Bye -->
-    <b-row class="section">
+    <b-row>
       <b-col>
-        <b-row class="flex-column pb-2" align-h="center" align-v="center">
-          <Button>
-            Retour
-          </Button>
+        <b-row class="flex-column mt-5 mb-5" align-h="center" align-v="center">
+          <router-link to="/" class="button">Retour</router-link>
         </b-row>
       </b-col>
     </b-row>
@@ -108,13 +110,13 @@ import { mapGetters } from 'vuex'
 export default {
   data: () => ({
     names: [{
-        text: 'owen'
+        text: 'Owen Gombas'
       }, {
-        text: 'david'
+        text: 'Malo Romano'
       }, {
-        text: 'dany'
+        text: 'Dany da Costa '
       }, {
-        text: 'malo'
+        text: 'David Darmanger'
       }
     ]
   }),
@@ -131,7 +133,7 @@ export default {
 <style scoped lang="scss">
 h1 {
   color: #315ef9;
-  height: 10vh;
+  height: 6vh;
 }
 .favorite-fish{
   height: 1.5em;
@@ -140,10 +142,41 @@ h1 {
   background-color: rgb(239, 242, 255);
 }
 .section{
+  padding: 25px;
   margin-top: 100px;
-  padding: 15px;
 }
 p{
-  width: 55%;
+  text-align: justify;
+  width: 35%;
+}
+.wave-footer {
+  margin-bottom: -1px;
+  filter: drop-shadow(0px 2px 30px rgba(239, 242, 255, 0.714));
+}
+.button {
+  background: rgb(43, 93, 255);
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 8px !important;
+  font-weight: bold;
+  font-size: 1.5em !important;
+  box-shadow: 0px 7px 30px 0px rgba(43, 93, 255, 0.349);
+  transition: all .2s;
+  user-select: none;
+  &:hover {
+    text-decoration: none;
+    transform: scale(1.03);
+    box-shadow: 0px 7px 40px 0px rgba(43, 93, 255, 0.349);
+  }
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 0px 2px 10px 0px rgba(43, 93, 255, 0.349);
+  }
+}
+@media (max-width: 1200px) {
+p{
+  width: 75%;
+}
 }
 </style>
