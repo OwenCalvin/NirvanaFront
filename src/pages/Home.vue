@@ -195,11 +195,11 @@ export default {
     equals() {
       return [
         {
-          img: 'google',
-          name: 'Google',
-          unit: 'recherches',
-          desc: `Vous auriez pu faire ${this.gsearch()} recherches sur Google avec autant de kWh`,
-          value: this.gsearch
+          img: 'light',
+          name: 'Consommation',
+          unit: 'consommation semestrielle',
+          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation semestrielle d\'un Suisse moyen`,
+          value: this.person
         },
         {
           img: 'battery',
@@ -209,11 +209,11 @@ export default {
           value: this.batteries
         },
         {
-          img: 'light',
-          name: 'Consommation',
-          unit: 'consommation semestrielle',
-          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation semestrielle d\'un Suisse moyen`,
-          value: this.person
+          img: 'google',
+          name: 'Google',
+          unit: 'recherches',
+          desc: `Vous auriez pu faire ${this.gsearch()} recherches sur Google avec autant de kWh`,
+          value: this.gsearch
         },
         {
           img: 'co2',
