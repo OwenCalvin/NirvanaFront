@@ -338,18 +338,6 @@ a {
   filter: drop-shadow(0px 2px 30px rgba(239, 242, 255, 0.714));
 }
 
-@media (max-width: 700px) {
-  h1 {
-    font-size: 4em;
-  }
-  .title {
-    font-size: 2.5em;
-  }
-  .value {
-    font-size: 3em;
-  }
-}
-
 .sub-title {
   font-size: 1.5em;
 }
@@ -370,5 +358,17 @@ a {
 .img-value {
   width: 4em;
   opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 4em;
+  }
+  .title {
+    font-size: 2.5em;
+  }
+  .value {
+    font-size: 3em;
+  }
 }
 </style>

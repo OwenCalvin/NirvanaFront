@@ -56,7 +56,7 @@ export default {
 }
 
 .selected {
-  border: 5px solid #FF2B2B;
+  border: 5px solid rgba(255, 43, 43, 0.342);
 }
 
 .disabled {
