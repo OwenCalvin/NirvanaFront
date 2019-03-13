@@ -2,8 +2,8 @@
   <b-row id="answer" align-v="center" align-h="center" class="flex-column text-center">
     <b-col md="6" xs="11">
       <span class="n-blue">{{ index }} / {{ total }}</span>
-      <h3 class="question n-blue" v-html="item.question"/>
-      <h3 v-if="answered" class="n-blue explanation" v-html="item.explanation"/>
+      <h3 class="question n-blue title" v-html="item.question"/>
+      <h3 v-if="answered" class="n-blue explanation title" v-html="item.explanation"/>
       <Answer
       v-scroll-to="'#answer'"
       @click="answer(item, index)"
@@ -14,9 +14,8 @@
       :disabled="answered"
       :portion="item.portion"
       :selected="index === selected"
-      :key="index">
-        {{ item.text }}
-      </Answer>
+      :key="index"
+      :content="item.text"/>
       <Button v-scroll-to="'#answer'" @click="next" v-if="answered" class="btn-next">
         {{ last ? 'Terminer' : 'Question suivante' }}
       </Button>
@@ -85,10 +84,5 @@ h3 {
 
 .explanation {
   font-weight: normal
-}
-
-.question,
-.explanation {
-  font-size: 2em;
 }
 </style>

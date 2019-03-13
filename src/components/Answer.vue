@@ -1,9 +1,7 @@
 <template>
   <div>
     <div class="n-bg-light n-blue answer py-2 px-3" :class="{ correct, notCorrect, disabled, selected }">
-      <div @click="$emit('click')" class="content">
-        <slot/>
-      </div>
+      <div @click="$emit('click')" class="content" v-html="content"/>
       <div v-if="disabled" class="portion" :style="{width: `${portion * 100}%`}">
       </div>
     </div>
@@ -12,7 +10,7 @@
 
 <script>
 export default {
-  props: ['correct', 'notCorrect', 'disabled', 'selected', 'portion'],
+  props: ['correct', 'notCorrect', 'disabled', 'selected', 'portion', 'content'],
   data: () => ({
   })
 }
