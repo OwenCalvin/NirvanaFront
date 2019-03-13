@@ -125,7 +125,7 @@ export default {
     return {
       questionIndex: value !== null ? Number(value) : -1,
       questions: [],
-      lastGsearch: 0
+      lastGsearch: null
     }
   },
   async created() {
@@ -177,9 +177,8 @@ export default {
     },
     gsearch() {
       const number = (this.currentValue / 0.0003).toFixed(0)
-      if (number % 10 === 5 || !this.lastGsearch) {
+      if ((this.lastGsearch === null || number % 10 === 0) && number > 0) {
         this.lastGsearch = number
-        return number
       }
       return this.lastGsearch
     }
