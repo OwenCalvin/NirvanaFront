@@ -4,6 +4,7 @@ export default class Probs {
   static range = 15
   static unitPerDay = 24 * 60 / this.range;
   static tick = 0
+  static lastIndex
   static timer
 
   static getCurrentTimeRangeIndex () {
@@ -25,14 +26,14 @@ export default class Probs {
       now.getFullYear(),
       now.getMonth(),
       now.getDate(),
-      0, Probs.range * index, 0
+      0, this.range * index, 0
     ).getTime()
     return indexTime - now.getTime()
   }
 
   static getKw (ms) {
-    const currentIndex = Probs.getCurrentTimeRangeIndex()
-    if (currentIndex >= this.unitPerDay) {
+    const currentIndex = this.getCurrentTimeRangeIndex()
+    if (currentIndex < this.lastIndex) {
       clearInterval(this.timer)
       try {
         this.launch()
@@ -41,13 +42,14 @@ export default class Probs {
       }
     } else {
       const prob = store.getters.probs[currentIndex]
-      console.log(prob.slope, prob.slope / (this.range * 60 * 1000), ms)
+      this.lastIndex = currentIndex
       return (prob.slope / this.convertToMs(this.range)) * ms + prob.value
     }
   }
 
   static async launch () {
     await store.dispatch('setProbs')
+    this.lastIndex = 0
     this.timer = setInterval(async () => {
       const currentIndex = this.getCurrentTimeRangeIndex()
       const ms = this.convertToMs(Probs.range) - this.getTimeRangeByIndex(currentIndex + 1)
