@@ -124,7 +124,8 @@ export default {
     const value = localStorage.getItem('questionIndex')
     return {
       questionIndex: value !== null ? Number(value) : -1,
-      questions: []
+      questions: [],
+      lastGsearch: 0
     }
   },
   async created() {
@@ -168,14 +169,19 @@ export default {
     batteries() {
       return (this.currentValue / 0.01).toFixed(0)
     },
-    paris() {
-      return (this.co2() / (180 * 58)).toFixed(4)
+    travel() {
+      return ((this.co2() * 1000 / (6.4 * 75)) / 2).toFixed(2)
     },
     person() {
       return (this.currentValue / (7520 / 2) * 100).toFixed(2) + '%'
     },
     gsearch() {
-      return (this.co2() * 1000 / 7).toFixed(0)
+      const number = (this.currentValue / 0.0003).toFixed(0)
+      if (number % 10 === 5 || !this.lastGsearch) {
+        this.lastGsearch = number
+        return number
+      }
+      return this.lastGsearch
     }
   },
   computed: {
@@ -188,6 +194,27 @@ export default {
     },
     equals() {
       return [
+        {
+          img: 'google',
+          name: 'Google',
+          unit: 'recherches',
+          desc: `Vous auriez pu faire ${this.gsearch()} recherches sur Google avec autant de kWh`,
+          value: this.gsearch
+        },
+        {
+          img: 'battery',
+          name: 'Batteries',
+          unit: 'batteries',
+          desc: `vous auriez pu charger ${this.batteries()} fois votre smartphone avanc autant de kWh`,
+          value: this.batteries
+        },
+        {
+          img: 'light',
+          name: 'Consommation',
+          unit: 'consommation semestrielle',
+          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation semestrielle d\'un Suisse moyen`,
+          value: this.person
+        },
         {
           img: 'co2',
           name: 'CO<sub>2</sub>',
@@ -203,33 +230,12 @@ export default {
           value: this.trees
         },
         {
-          img: 'google',
-          name: 'Google',
-          unit: 'recherches',
-          desc: `Vous auriez pu faire ${this.gsearch()} recherches google pour rejeter autant de CO<sub>2</sub>`,
-          value: this.gsearch
+          img: 'train',
+          name: 'Train',
+          unit: 'aller-retour Neuchâtel-Lausanne',
+          desc: `Vous auriez pu faire ${this.travel()} aller-retour Neuchâtel-Lausanne en train pour rejeter autant de CO<sub>2</sub>`,
+          value: this.travel
         },
-        {
-          img: 'plane',
-          name: 'Avion',
-          unit: 'voyages Paris-Genève',
-          desc: `Vous auriez pu faire ${this.paris()} voyages Paris-Genève en avion pour rejeter autant de CO<sub>2</sub>`,
-          value: this.paris
-        },
-        {
-          img: 'battery',
-          name: 'Batteries',
-          unit: 'batteries',
-          desc: `Vous auriez pu charger ${this.batteries()} fois votre smartphone avec autant de kWh`,
-          value: this.batteries
-        },
-        {
-          img: 'light',
-          name: 'Consommation',
-          unit: 'consommation semestrielle',
-          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation semestrielle d\'un suisse moyen`,
-          value: this.person
-        }
       ]
     }
   },
