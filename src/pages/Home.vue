@@ -8,7 +8,7 @@
               <UnderlineText color="#ffffff33" height="5">
                 Depuis le 08.03.2019
                 <p>
-                  le datacenter du CPLN a consomé
+                  le datacenter du CPLN a consommé
                 </p>
               </UnderlineText>
             </p>
@@ -47,7 +47,7 @@
               </UnderlineText>
             </h2>
             <p class="n-light sub-title">
-              Nous vous proposons un petit questionnaire afin de remettre en question vos habitudes
+              Nous proposons un petit questionnaire afin de remettre en question vos habitudes
             </p>
             <Button v-if="questions.length > 0" @click="nextQuestion">
               Commencer
@@ -100,7 +100,7 @@
           <h4 class="about">
             <router-link to="/about">
               <UnderlineText>
-                A propos du projet
+                À propos du projet
               </UnderlineText>
             </router-link>
           </h4>
@@ -197,14 +197,14 @@ export default {
           img: 'light',
           name: 'Consommation',
           unit: 'consommation semestrielle',
-          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation semestrielle d\'un Suisse moyen`,
+          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation électrique semestrielle d'un citoyen Suisse moyen`,
           value: this.person
         },
         {
           img: 'battery',
           name: 'Batteries',
           unit: 'batteries',
-          desc: `vous auriez pu charger ${this.batteries()} fois votre smartphone avanc autant de kWh`,
+          desc: `Vous auriez pu recharger ${this.batteries()} fois votre smartphone avec autant d'énergie`,
           value: this.batteries
         },
         {
@@ -218,14 +218,14 @@ export default {
           img: 'co2',
           name: 'CO<sub>2</sub>',
           unit: 'kg',
-          desc: `${this.co2()} kg de CO<sub>2</sub> ont été rejeté dû à la consommation d\'électricité`,
+          desc: `${this.co2()} kg de CO<sub>2</sub> ont été rejetés dus à la consommation d'électricité`,
           value: this.co2
         },
         {
           img: 'tree',
           name: 'Arbres',
           unit: 'arbres',
-          desc: `Il aura fallu ${this.trees()} arbres pour éliminer tout ce CO<sub>2</sub> en 1 jour`,
+          desc: `Il aurait fallu ${this.trees()} arbres pour éliminer ce CO<sub>2</sub> en 1 jour`,
           value: this.trees
         },
         {
