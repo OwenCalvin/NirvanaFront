@@ -345,6 +345,9 @@ a {
   .title {
     font-size: 2.5em;
   }
+  .value {
+    font-size: 3em;
+  }
 }
 
 .sub-title {
