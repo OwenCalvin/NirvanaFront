@@ -232,8 +232,8 @@ export default {
         {
           img: 'train',
           name: 'Train',
-          unit: 'aller-retour Neuchâtel-Lausanne',
-          desc: `Vous auriez pu faire ${this.travel()} aller-retour Neuchâtel-Lausanne en train pour rejeter autant de CO<sub>2</sub>`,
+          unit: 'allers-retours Neuchâtel-Lausanne',
+          desc: `Vous auriez pu faire ${this.travel()} allers-retours Neuchâtel-Lausanne en train pour rejeter autant de CO<sub>2</sub>`,
           value: this.travel
         },
       ]
