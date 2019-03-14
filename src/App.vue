@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <b-container fluid v-if="!ie">
-      <router-view/>
+      <transition name="fade" mode="out-in">
+        <router-view/>
+      </transition>
     </b-container>
     <b-container class="h-100 w-100 position-absolute" v-else fluid>
       <b-row class="h-100 w-100 text-center" align-h="center" align-v="center">
@@ -49,6 +51,14 @@ export default {
 * {
   outline: none !important;
   font-family: 'Metropolis', 'Helvetica Neue', 'Segoe Ui', 'Roboto', sans-serif;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.1s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 
 .no-browser {
