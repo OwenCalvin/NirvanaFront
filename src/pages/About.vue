@@ -3,16 +3,16 @@
     <!-- Intro -->
     <b-row class="team-section mb-3">
       <b-col>
-        <b-row class="flex-column pt-2" align-h="center" align-v="center">
+        <b-row class="flex-column pt-5" align-h="center" align-v="center">
           <h4 class="n-light font-weight-bold sign">
             A propos
           </h4>
         </b-row>
-        <b-row class="flex-column pb-4" align-h="center" align-v="center">
+        <b-row class="flex-column pb-5" align-h="center" align-v="center">
           <img src="/img/fish.svg" class="logos"/>
         </b-row>
-        <b-row class="flex-column pb-2" align-h="center" align-v="center">
-          <h1 class="n-blue font-weight-bold">
+        <b-row class="flex-column pt-5 pb-3" align-h="center" align-v="center">
+          <h1 class="n-blue font-weight-black">
             <UnderlineText>
               L'équipe
             </UnderlineText>
@@ -35,13 +35,13 @@
       </b-container>-->
     </b-row>
 
-    <!-- Team --> 
+    <!-- Team -->
     <b-row class="mb-5">
-      <b-container fluid >
-        <b-row class="text-center h-10 pb-1 d-flex align-items-center justify-content-center">
-          <b-col md="3" class="py-4" v-for="(item, index) in names" :key="index">
+      <b-container fluid>
+        <b-row class="text-center pb-3 d-flex align-items-center justify-content-center">
+          <b-col lg="3" md="6" class="py-4" v-for="(item, index) in names" :key="index">
             <img class="team-logos mb-4" :src="`/img/${item.img}.svg`">
-            <h3 class="n-blue font-weight-bold">
+            <h3 class="n-blue font-weight-medium">
               {{ item.text }}
             </h3>
           </b-col>
@@ -55,19 +55,21 @@
         <path d="M1920,45.69H0l1.44-4.526s282.222-49.9,572.71-39.82c282.6,9.8,527.8,44.346,763.96,44.346,480,0,581.89-44.346,581.89-44.346Z"/>
       </svg>
       <b-col class="projet-section">
-        <b-row class="flex-column pt-5" align-h="center" align-v="center">
-          <h1 class="n-blue font-weight-bold">
+        <b-row class="flex-column pt-5 pb-4" align-h="center" align-v="center">
+          <h1 class="n-blue font-weight-black">
             Le projet
           </h1>
         </b-row>
         <b-row class="flex-column pb-5 n-light" align-h="center" align-v="center">
-          <p>
-            Ce projet constitue le produit final du projet de TIP "Comment sensibiliser les usagers du CPLN à la pollution numérique ?". Réalisé dans une démarche de sensibilisation, il montre la
-            consommation des serveurs informatiques du CPLN en kWh. Les données sont une estimation du temps réel calculée à l'aide de techniques d'apprentissage par statistique (machine learning). Des
-            comparaisons parlantes d'éléments de la vie réelle sont également calculées à partir du nombre de kWh. Pour ces conversions, nous nous sommes basés sur plusieurs sources, celles-ci sont disponible dans notre rapport, vous pouvez nous le demander par e-mail si cela vous intéresse.
-            Le compteur est également accompagné d'un questionnaire de 8 questions visant à changer vos mauvaises habitudes et à terme à réduire votre
-            pollution numérique.
-          </p>
+          <b-col lg="7" md="9" sm="10" cols="11">
+            <p>
+              Ce projet constitue le produit final du projet de TIP "Comment sensibiliser les usagers du CPLN à la pollution numérique ?". Réalisé dans une démarche de sensibilisation, il montre la
+              consommation des serveurs informatiques du CPLN en kWh. Les données sont une estimation du temps réel calculée à l'aide de techniques d'apprentissage par statistique (machine learning). Des
+              comparaisons parlantes d'éléments de la vie réelle sont également calculées à partir du nombre de kWh. Pour ces conversions, nous nous sommes basés sur plusieurs sources, celles-ci sont disponible dans notre rapport, vous pouvez nous le demander par e-mail si cela vous intéresse.
+              Le compteur est également accompagné d'un questionnaire de 8 questions visant à changer vos mauvaises habitudes et à terme à réduire votre
+              pollution numérique.
+            </p>
+          </b-col>
         </b-row>
       </b-col>
       <svg class="wave-header n-fill-light" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1920 45.691">
@@ -76,21 +78,23 @@
     </b-row>
 
     <!-- Why ?-->
-    <b-row class="section">
+    <b-row class="section pt-5">
       <b-col>
-        <b-row class="flex-column pt-2" align-h="center" align-v="center">
-          <h1 class="n-blue font-weight-bold">
+        <b-row class="flex-column pt-5 pb-4" align-h="center" align-v="center">
+          <h1 class="n-blue font-weight-black">
             <UnderlineText>
               Pourquoi ?
             </UnderlineText>
           </h1>
         </b-row>
         <b-row class="flex-column n-light" align-h="center" align-v="center">
-          <p>
-            Étant nous-mêmes des consommateurs des ces services et sensibles à l’écologie, le choix de ce projet nous a tout de suite conquis. Nous savons que c’est une question qui ne parle pas à tout le monde au premier abord,
-            même si elle nous concerne tous. C’est ce “flou” sur la question qui nous a motivé à tenter d’y répondre. L'utilisation des outils informatiques ne cesse de croître.
-            En tant qu’informaticiens, nous contribuons à l’essor des nouvelles technologies. De ce fait, nous participons encore plus directement à cette pollution.
-          </p>
+          <b-col lg="7" md="9" sm="10" cols="11">
+            <p>
+              Étant nous-mêmes des consommateurs des ces services et sensibles à l’écologie, le choix de ce projet nous a tout de suite conquis. Nous savons que c’est une question qui ne parle pas à tout le monde au premier abord,
+              même si elle nous concerne tous. C’est ce “flou” sur la question qui nous a motivé à tenter d’y répondre. L'utilisation des outils informatiques ne cesse de croître.
+              En tant qu’informaticiens, nous contribuons à l’essor des nouvelles technologies. De ce fait, nous participons encore plus directement à cette pollution.
+            </p>
+          </b-col>
         </b-row>
       </b-col>
     </b-row>
@@ -151,23 +155,22 @@ h1 {
   height: 1.5em;
 }
 
+.logos {
+  height: 2.3em;
+}
+
 .team-logos {
   transition: .3s;
-  height: 14em;
+  opacity: 0.7;
+  height: 6em;
 }
 
 .projet-section {
   background-color: rgb(239, 242, 255);
 }
 
-.section {
-  padding: 25px;
-  margin-top: 100px;
-}
-
 p {
   text-align: justify;
-  width: 45%;
   font-size: 1.5em;
 }
 
@@ -177,12 +180,8 @@ p {
 }
 
 @media (max-width: 1200px) {
-  p{
-    width: 75%;
-    font-size: 1.3em;
-  }
-  .team-logos{
-    height: 8em;
+  p {
+    font-size: 1.4em;
   }
 }
 </style>
