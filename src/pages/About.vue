@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Intro -->
-    <b-row class="team-section projet">
+    <b-row class="team-section mb-3">
       <b-col>
         <b-row class="flex-column pt-2" align-h="center" align-v="center">
           <h4 class="n-light font-weight-bold sign">
@@ -21,7 +21,7 @@
       </b-col>
 
       <!-- Team -->
-      <b-container fluid >
+      <!--<b-container fluid >
         <b-row class="text-center h-10 pb-1 d-flex align-items-center justify-content-center">
           <b-col class="text-center  d-flex flex-column align-items-center justify-content-center py-5" lg="3" md="12" v-for="(item, index) in names" :key="index">
             <div class="d-flex flex-column align-items-center justify-content-center">
@@ -32,8 +32,22 @@
             </div>
           </b-col>
         </b-row>
-      </b-container>
+      </b-container>-->
     </b-row>
+
+    <!-- Team --> 
+    <b-row class="mb-5">
+      <b-container fluid >
+        <b-row class="text-center h-10 pb-1 d-flex align-items-center justify-content-center">
+          <b-col md="3" class="py-4" v-for="(item, index) in names" :key="index">
+            <img class="team-logos mb-4" :src="`/img/${item.img}.svg`">
+            <h3 class="n-blue font-weight-bold">
+              {{ item.text }}
+            </h3>
+          </b-col>
+        </b-row>
+      </b-container>
+  </b-row>
 
     <!-- The project -->
     <b-row>
@@ -142,11 +156,6 @@ h1 {
   height: 14em;
 }
 
-.team-section {
-  height: 100vh;
-  min-height: 1200px;
-}
-
 .projet-section {
   background-color: rgb(239, 242, 255);
 }
@@ -174,15 +183,6 @@ p {
   }
   .team-logos{
     height: 8em;
-  }
-}
-
-@media (max-width: 992px){
-  .team-section{
-    height: 100vh;
-  }
-  .projet{
-    margin-bottom: 150px;
   }
 }
 </style>
