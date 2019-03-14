@@ -195,7 +195,7 @@ export default {
           img: 'light',
           name: 'Consommation',
           unit: 'consommation semestrielle',
-          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation électrique semestrielle d'un citoyen Suisse moyen`,
+          desc: `${this.currentValue.toFixed(2)} kWh équivaut à ${this.person()} de la consommation semestrielle d'un citoyen Suisse`,
           value: this.person
         },
         {
@@ -367,6 +367,14 @@ a {
   }
   .value {
     font-size: 3em;
+  }
+}
+
+@media (max-width: 991px) {
+  .values {
+    min-height: unset;
+    max-height: unset;
+    height: auto;
   }
 }
 </style>
