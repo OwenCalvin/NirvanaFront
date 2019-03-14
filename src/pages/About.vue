@@ -1,42 +1,39 @@
 <template>
   <div>
     <!-- Intro -->
+    <b-row class="team-section projet">
+      <b-col>
+        <b-row class="flex-column pt-2" align-h="center" align-v="center">
+          <h4 class="n-light font-weight-bold sign">
+            A propos
+          </h4>
+        </b-row>
+        <b-row class="flex-column pb-4" align-h="center" align-v="center">
+          <img src="/img/fish.svg" class="logos"/>
+        </b-row>
+        <b-row class="flex-column pb-2" align-h="center" align-v="center">
+          <h1 class="n-blue font-weight-bold">
+            <UnderlineText>
+              L'équipe
+            </UnderlineText>
+          </h1>
+        </b-row>
+      </b-col>
 
-
-      <b-row class="team-section"> 
-        <b-col>
-          <b-row class="flex-column pt-2" align-h="center" align-v="center">
-            <h4 class="n-light font-weight-bold sign">
-              A propos
-            </h4>
-          </b-row>
-          <b-row class="flex-column pb-4" align-h="center" align-v="center">
-            <img src="/img/fish.svg" class="favorite-fish"/>
-          </b-row>
-          <b-row class="flex-column pb-2" align-h="center" align-v="center">
-            <h1 class="n-blue font-weight-bold">
-              <UnderlineText>
-                L'équipe
-              </UnderlineText>
-            </h1>
-          </b-row>
-        </b-col>
-      
-
-        <!-- Team -->
-        <b-container fluid >
-          <b-row class="text-center h-10 pb-1 d-flex align-items-center justify-content-center">
-            <b-col md="2"></b-col>
-            <b-col md="2" class="py-4" v-for="(item, index) in names" :key="index">
-              <h2 class="n-blue font-weight-bold">
+      <!-- Team -->
+      <b-container fluid >
+        <b-row class="text-center h-10 pb-1 d-flex align-items-center justify-content-center">
+          <b-col class="text-center  d-flex flex-column align-items-center justify-content-center py-5" lg="3" md="12" v-for="(item, index) in names" :key="index">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+              <img class="team-logos mb-4" :src="`/img/${item.img}.svg`">
+              <h3 class="n-blue font-weight-bold">
                 {{ item.text }}
-              </h2>
-            </b-col>
-            <b-col md="2"></b-col>
-          </b-row>
-        </b-container>
-      </b-row>
-
+              </h3>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </b-row>
     
     <!-- Le projet -->
     <b-row>
@@ -80,23 +77,6 @@
       </b-col>
     </b-row>
 
-    <!-- Pour qui ?
-    <b-row class="section">
-      <b-col>
-        <b-row class="flex-column pt-2" align-h="center" align-v="center">
-          <h1 class="n-blue font-weight-bold">
-                Pour qui ?
-          </h1>
-        </b-row>
-        <b-row class="flex-column" align-h="center" align-v="center">
-          <p> À tout usagers des ressources informatiques du CPLN sur l'impact environnemental de ces actes. 
-            Le but est de montrer, par des exemples, des comparaisons et des statistiques, que la pollution numérique est un réel problème. 
-            Qui devra être amenée à être résolue si nous voulons continuer à utiliser les outils informatiques comme nous les utilisons aujourd’hui. 
-            Nous espérons, dans le futur, être les auteurs des ces solutions. </p>
-        </b-row>
-      </b-col>
-    </b-row> -->
-
     <!-- Bye Bye -->
     <b-row>
       <b-col>
@@ -116,13 +96,17 @@ import { mapGetters } from 'vuex'
 export default {
   data: () => ({
     names: [{
-        text: 'Owen Gombas'
+        text: 'Owen Gombas',
+        img: 'dolphin-jumping'
       }, {
-        text: 'Malo Romano'
+        text: 'Malo Romano',
+        img: 'fish-bone'
       }, {
-        text: 'Dany da Costa '
+        text: 'Dany da Costa ',
+        img: 'shrimp'
       }, {
-        text: 'David Darmanger'
+        text: 'David Darmanger',
+        img: 'sea-horse'
       }
     ]
   }),
@@ -144,8 +128,13 @@ h1 {
 .favorite-fish{
   height: 1.5em;
 }
+.team-logos{
+  transition: .3s;
+  height: 14em;
+}
 .team-section{
     height: 100vh;
+    min-height: 1200px;
 }
 .projet-section{
   background-color: rgb(239, 242, 255);
@@ -188,6 +177,17 @@ p{
   p{
     width: 75%;
     font-size: 1.3em;
+  }
+  .team-logos{
+    height: 8em;
+  }
+}
+@media (max-width: 992px){
+  .team-section{
+    height: 100vh;
+  }
+  .projet{
+    margin-bottom: 150px;
   }
 }
 </style>

@@ -6,7 +6,9 @@ import About from './pages/About'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  scrollBehavior () {
+    return { x: 0, y: 0 }
+  },
   routes: [
     {
       path: '/',
@@ -18,5 +20,6 @@ export default new Router({
       name: 'about',
       component: About
     }
-  ]
+  ],
+  mode: 'history'
 })
