@@ -18,21 +18,21 @@ export default {
   data: () => ({
     realHeight: 8
   }),
-  created() {
+  created () {
     if (this.height) {
       this.realHeight = this.height
     }
   },
   methods: {
-    getPx(number) {
+    getPx (number) {
       return `${number}px`
     }
   },
   computed: {
-    underlineHeight() {
+    underlineHeight () {
       return this.getPx(this.realHeight)
     },
-    underlineBottom() {
+    underlineBottom () {
       return this.bottom ? this.getPx(this.bottom) : this.getPx(-this.realHeight / 3)
     }
   }

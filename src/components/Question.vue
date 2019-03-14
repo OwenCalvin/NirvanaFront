@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import Button from './Button';
-import Answer from './Answer';
+import Button from './Button'
+import Answer from './Answer'
 
 export default {
   props: ['item', 'total', 'index', 'last'],
@@ -34,7 +34,7 @@ export default {
     selected: -1
   }),
   methods: {
-    answer(item, index) {
+    answer (item, index) {
       if (!this.answered) {
         this.selected = index
         this.item.answers.map((answer, index) => {
@@ -49,7 +49,7 @@ export default {
         this.$emit('answered', index)
       }
     },
-    next() {
+    next () {
       this.selected = -1
       this.answered = false
       this.$emit('next')

@@ -30,7 +30,7 @@ export default {
     bubbles: [],
     ticks: 0
   }),
-  mounted() {
+  mounted () {
     setInterval(() => {
       this.bubbles.map((bubble, index) => {
         const newBubble = {
@@ -49,14 +49,14 @@ export default {
     }, 0)
   },
   methods: {
-    bubble(event) {
+    bubble (event) {
       if (this.ticks >= 30) {
-        const radius = Math.random() * (40 - 20) + 20;
+        const radius = Math.random() * (40 - 20) + 20
         this.bubbles.push({
           radius,
           opacity: Math.random() * (1 - 0.2) + 0.2,
           x: event.clientX,
-          y: event.clientY,
+          y: event.clientY
         })
         this.ticks = 0
       }

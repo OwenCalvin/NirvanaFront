@@ -6,7 +6,7 @@
           <h3 class="text-center">
             <p class="font-weight-medium">
               <UnderlineText color="#ffffff33" height="5">
-                Depuis le 08.03.2019
+                Depuis le 14.03.2019
                 <p>
                   le datacenter du CPLN a consommé
                 </p>
@@ -112,12 +112,10 @@
 
 <script>
 import Button from '../components/Button'
-import Answer from '../components/Answer'
 import Question from '../components/Question'
 import UnderlineText from '../components/UnderlineText'
 import Api from '../class/Api'
 import { mapGetters } from 'vuex'
-
 
 export default {
   data: () => {
@@ -128,7 +126,7 @@ export default {
       lastGsearch: null
     }
   },
-  async created() {
+  async created () {
     try {
       this.questions = this.calculatePortion((await Api.getQuestions()).data)
     } catch (err) {
@@ -136,7 +134,7 @@ export default {
     }
   },
   methods: {
-    calculatePortion(questions) {
+    calculatePortion (questions) {
       return questions.map((question) => {
         const total = question.answers.reduce((total, answer) => {
           return total + answer.votes
@@ -148,34 +146,34 @@ export default {
         return question
       })
     },
-    nextQuestion() {
+    nextQuestion () {
       this.questionIndex++
       this.refreshLocalStorage()
     },
-    async answer(answerIndex) {
+    async answer (answerIndex) {
       this.questions[this.questionIndex].answers[answerIndex].votes++
       this.questions = this.calculatePortion(this.questions)
       await Api.postAnswer(this.questionIndex, answerIndex)
     },
-    refreshLocalStorage() {
+    refreshLocalStorage () {
       localStorage.setItem('questionIndex', this.questionIndex)
     },
-    co2() {
+    co2 () {
       return (129 * this.currentValue / 1000).toFixed(2)
     },
-    trees() {
+    trees () {
       return (this.co2() * (365 / 25)).toFixed(2)
     },
-    batteries() {
+    batteries () {
       return (this.currentValue / 0.01).toFixed(0)
     },
-    travel() {
+    travel () {
       return ((this.co2() * 1000 / (6.4 * 75)) / 2).toFixed(2)
     },
-    person() {
+    person () {
       return (this.currentValue / (7520 / 2) * 100).toFixed(2) + '%'
     },
-    gsearch() {
+    gsearch () {
       const number = (this.currentValue / 0.0003).toFixed(0)
       if ((this.lastGsearch === null || number % 10 === 0) && number > 0) {
         this.lastGsearch = number
@@ -185,13 +183,13 @@ export default {
   },
   computed: {
     ...mapGetters(['currentValue']),
-    question() {
+    question () {
       return this.questions[this.questionIndex]
     },
-    began() {
+    began () {
       return this.questionIndex >= 0
     },
-    equals() {
+    equals () {
       return [
         {
           img: 'light',
@@ -234,13 +232,12 @@ export default {
           unit: 'allers-retours Neuchâtel-Lausanne',
           desc: `Vous auriez pu faire ${this.travel()} allers-retours Neuchâtel-Lausanne en train pour rejeter autant de CO<sub>2</sub>`,
           value: this.travel
-        },
+        }
       ]
     }
   },
   components: {
     Button,
-    Answer,
     Question,
     UnderlineText
   }
