@@ -1,36 +1,42 @@
 <template>
   <div>
     <!-- Intro -->
-    <b-row>
-      <b-col>
-        <b-row class="flex-column pt-2" align-h="center" align-v="center">
-          <h4 class="n-light font-weight-bold sign">
-            A propos
-          </h4>
-        </b-row>
-        <b-row class="flex-column pb-4" align-h="center" align-v="center">
-          <img src="/img/fish.svg" class="favorite-fish"/>
-        </b-row>
-        <b-row class="flex-column pb-2" align-h="center" align-v="center">
-          <h1 class="n-blue font-weight-bold">
-            <UnderlineText>
-              L'équipe
-            </UnderlineText>
-          </h1>
-        </b-row>
-      </b-col>
-    </b-row>
 
-    <!-- Team -->
-    <b-container fluid>
-      <b-row class="text-center pb-5">
-        <b-col md="3" class="py-4" v-for="(item, index) in names" :key="index">
-          <h3 class="n-blue font-weight-bold">
-            {{ item.text }}
-          </h3>
+
+      <b-row class="team-section"> 
+        <b-col>
+          <b-row class="flex-column pt-2" align-h="center" align-v="center">
+            <h4 class="n-light font-weight-bold sign">
+              A propos
+            </h4>
+          </b-row>
+          <b-row class="flex-column pb-4" align-h="center" align-v="center">
+            <img src="/img/fish.svg" class="favorite-fish"/>
+          </b-row>
+          <b-row class="flex-column pb-2" align-h="center" align-v="center">
+            <h1 class="n-blue font-weight-bold">
+              <UnderlineText>
+                L'équipe
+              </UnderlineText>
+            </h1>
+          </b-row>
         </b-col>
+      
+
+        <!-- Team -->
+        <b-container fluid >
+          <b-row class="text-center h-10 pb-1 d-flex align-items-center justify-content-center">
+            <b-col md="2"></b-col>
+            <b-col md="2" class="py-4" v-for="(item, index) in names" :key="index">
+              <h2 class="n-blue font-weight-bold">
+                {{ item.text }}
+              </h2>
+            </b-col>
+            <b-col md="2"></b-col>
+          </b-row>
+        </b-container>
       </b-row>
-    </b-container>
+
     
     <!-- Le projet -->
     <b-row>
@@ -43,7 +49,7 @@
               Le projet
           </h1>
         </b-row>
-        <b-row class="flex-column pb-5" align-h="center" align-v="center">
+        <b-row class="flex-column pb-5 n-light" align-h="center" align-v="center">
           <p>Ce projet constitue le produit final du projet de TIP "Comment sensibiliser les usagers du CPLN à la pollution numérique ?". Réalisé dans une démarche de sensibilisation, il montre la
           consommation des serveurs informatiques du CPLN en kWh. Les données sont une estimation du temps réel calculée à l'aide de techniques d'apprentissage par statistique (machine learning). Des
           comparaisons parlantes d'éléments de la vie réelle sont également calculées depuis le nombre de kWh. Pour ces conversions, nous nous sommes basés sur plusieurs sources, qui peuvent être
@@ -66,7 +72,7 @@
             </UnderlineText>
           </h1>
         </b-row>
-        <b-row class="flex-column " align-h="center" align-v="center">
+        <b-row class="flex-column n-light" align-h="center" align-v="center">
           <p>Étant nous-mêmes des consommateurs des services internet et sensibles à l’écologie, le choix de ce projet nous a tout de suite conquis. Nous savons que c’est une question qui ne parle pas à tout le monde au premier abord,
              même si elle nous concerne tous. C’est ce “flou” sur la question qui nous a motivé à tenter d’y répondre. L'utilisation des outils informatiques ne cesse de croître. 
              En tant qu’informaticiens, nous contribuons à l’essor des nouvelles technologies. De ce fait, nous participons encore plus directement à cette pollution.</p>
@@ -138,6 +144,9 @@ h1 {
 .favorite-fish{
   height: 1.5em;
 }
+.team-section{
+    height: 100vh;
+}
 .projet-section{
   background-color: rgb(239, 242, 255);
 }
@@ -147,7 +156,8 @@ h1 {
 }
 p{
   text-align: justify;
-  width: 35%;
+  width: 45%;
+  font-size: 1.5em;
 }
 .wave-footer {
   margin-bottom: -1px;
@@ -175,8 +185,9 @@ p{
   }
 }
 @media (max-width: 1200px) {
-p{
-  width: 75%;
-}
+  p{
+    width: 75%;
+    font-size: 1.3em;
+  }
 }
 </style>
