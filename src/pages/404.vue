@@ -1,14 +1,16 @@
 <template>
-  <div @mousemove="bubble" class="c404 w-100 d-flex flex-column justify-content-center align-items-center">
+  <div class="text-center c404 w-100 d-flex flex-column justify-content-center align-items-center">
+    <div @mousemove="bubble" class="w-100 h-100 position-absolute"/>
     <img class="py-5" src="/img/fish.svg"/>
     <h1 class="n-blue font-weight-bolder">Vous vous êtes perdus en mer</h1>
     <h2 class="n-blue font-weight-light text-404">~ blueblue ~</h2>
-    <router-link to="/" class="pt-5">
+    <router-link to="/" class="pt-5 back-btn">
       <Button>
         Rejoindre le rivage
       </Button>
     </router-link>
     <div
+    touch-action="none"
     class="bubble n-bg-blue position-absolute"
     v-for="(bubble, index) in bubbles"
     :key="index"
@@ -70,9 +72,14 @@ export default {
 
 <style lang="scss" scoped>
 .bubble {
+  touch-action: none;
   pointer-events: none;
   border-radius: 100%;
-  z-index: -999;
+  z-index: -9;
+}
+
+.back-btn {
+  z-index: 999;
 }
 
 img {
