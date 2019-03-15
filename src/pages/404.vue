@@ -1,27 +1,29 @@
 <template>
-  <div class="text-center c404 w-100 d-flex flex-column justify-content-center align-items-center">
-    <div @mousemove="bubble" class="w-100 h-100 position-absolute"/>
-    <img class="py-5" src="/img/fish.svg"/>
-    <h1 class="n-blue font-weight-bolder">Vous vous êtes perdus en mer</h1>
-    <h2 class="n-blue font-weight-light text-404">~ blueblue ~</h2>
-    <router-link to="/" class="pt-5 back-btn">
-      <Button>
-        Rejoindre le rivage
-      </Button>
-    </router-link>
-    <div
-    touch-action="none"
-    class="bubble n-bg-blue position-absolute"
-    v-for="(bubble, index) in bubbles"
-    :key="index"
-    :style="{
-      width: `${bubble.radius}px`,
-      height: `${bubble.radius}px`,
-      opacity: bubble.opacity,
-      top: `${bubble.y}px`,
-      left: `${bubble.x}px`
-    }"/>
-  </div>
+  <b-row>
+    <div class="text-center c404 w-100 d-flex flex-column justify-content-center align-items-center">
+      <div @mousemove="bubble" class="w-100 h-100 position-absolute"/>
+      <img class="py-5" src="/img/fish.svg"/>
+      <h1 class="n-blue font-weight-bolder">Vous vous êtes perdus en mer</h1>
+      <h2 class="n-blue font-weight-light text-404">~ blueblue ~</h2>
+      <router-link to="/" class="pt-5 back-btn">
+        <Button>
+          Rejoindre le rivage
+        </Button>
+      </router-link>
+      <div
+      touch-action="none"
+      class="bubble n-bg-blue position-absolute"
+      v-for="(bubble, index) in bubbles"
+      :key="index"
+      :style="{
+        width: `${bubble.radius}px`,
+        height: `${bubble.radius}px`,
+        opacity: bubble.opacity,
+        top: `${bubble.y}px`,
+        left: `${bubble.x}px`
+      }"/>
+    </div>
+  </b-row>
 </template>
 
 <script>
@@ -87,7 +89,9 @@ img {
 }
 
 .c404 {
+  position: relative;
   height: 100vh;
+  overflow: hidden;
 }
 
 .text-404 {
