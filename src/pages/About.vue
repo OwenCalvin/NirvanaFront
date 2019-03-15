@@ -44,6 +44,9 @@
             <h3 class="n-blue font-weight-medium">
               {{ item.text }}
             </h3>
+            <a class="n-light" :href="`mailto:${item.email}`">
+              {{ item.email }}
+            </a>
           </b-col>
         </b-row>
       </b-container>
@@ -123,15 +126,19 @@ export default {
   data: () => ({
     names: [{
       text: 'Owen Gombas',
+      email: 'owen.gombas@rpn.ch',
       img: 'dolphin-jumping'
     }, {
       text: 'Malo Romano',
+      email: 'malo.romano@rpn.ch',
       img: 'fish-bone'
     }, {
       text: 'Dany da Costa ',
+      email: 'dany.oliveiradacosta@rpn.ch',
       img: 'shrimp'
     }, {
       text: 'David Darmanger',
+      email: 'david.darmanger@rpn.ch',
       img: 'sea-horse'
     }]
   }),
