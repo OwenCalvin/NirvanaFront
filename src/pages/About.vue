@@ -63,7 +63,7 @@
         <b-row class="flex-column pb-5 n-light" align-h="center" align-v="center">
           <b-col lg="7" md="9" sm="10" cols="11">
             <p>
-              Ce projet constitue le produit final du projet interdisciplinaire centré sur un projet : "Comment sensibiliser les usagers du CPLN à la pollution numérique ?". Réalisé dans une démarche de sensibilisation, il montre la
+              Ce site constitue le produit final du travail interdisciplinaire centré sur un projet : "Comment sensibiliser les usagers du CPLN à la pollution numérique ?". Réalisé dans une démarche de sensibilisation, il montre la
               consommation des serveurs informatiques du CPLN en kWh. Les données sont une estimation du temps réel calculée à l'aide de techniques d'apprentissage par statistique (machine learning). Des
               comparaisons parlantes d'éléments de la vie réelle sont également calculées à partir du nombre de kWh. Pour ces conversions, nous nous sommes basés sur plusieurs sources, celles-ci sont disponible dans notre rapport, vous pouvez nous le demander par e-mail si cela vous intéresse.
               Le compteur est également accompagné d'un questionnaire de 8 questions visant à changer vos mauvaises habitudes et à terme à réduire votre
