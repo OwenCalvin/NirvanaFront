@@ -41,7 +41,9 @@ export default class Probs {
         this.lastIndex = currentIndex
         return (prob.slope / this.convertToMs(this.range)) * ms + prob.value
       } else {
-        this.restart()
+        setTimeout(() => {
+          this.restart()
+        }, 35000)
       }
     }
   }
